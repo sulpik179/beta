@@ -8,7 +8,7 @@ SCHEMA_PATH = Path('data/schema.sql')
 class Database:
     def __init__(self):
         self.conn = sqlite3.connect(DB_PATH)
-        self.cursor = sqlite3.conn.cursor()
+        self.cursor = self.conn.cursor()
         self._apply_schema()
 
     def _apply_schema(self):    
@@ -69,3 +69,47 @@ class Database:
         return self.cursor.execute(
             'SELECT * FROM words'
         ).fetchall()
+
+    def close(self):
+        self.conn.close()
+
+    def add_words_from_csv(self, csv_path: str):
+        import csv
+        count = 0
+        with open(csv_path, 'r', encoding='utf-8') as f:
+            reader = csv.reader(f, delimiter=';')
+            for row_num, row in enumerate(reader, start=1):
+                if len(row) < 9:
+                    print(f'Missing the row {row_num} (not enough data): {row}')
+                    count += 1
+                    continue
+                
+                word_en, word_ru, distractor_ru1, distractor_ru2, distractor_en1, distractor_en2, sentence_ru, sentence_en, transcription = row
+                
+                existing = self.cursor.execute(
+                    'SELECT 1 FROM words WHERE word_en = ? AND word_ru = ?',
+                    (word_en, word_ru)
+                ).fetchone()
+                
+                if existing:
+                    print(f'Missing the line {row_num} (already exists): {word_en} - {word_ru}')
+                    continue
+                try:
+                    self.cursor.execute('''
+                        INSERT INTO words (
+                            word_en, word_ru, distractor_ru1, distractor_ru2, distractor_en1,
+                            distractor_en2, sentence_ru, sentence_en, transcription) VALUES
+                            (?, ?, ?, ?, ?, ?, ?, ?, ?)''',
+                            (word_en, word_ru, distractor_ru1, distractor_ru2,
+                            distractor_en1, distractor_en2, sentence_ru, sentence_en, transcription)
+                            )
+                except Exception as e:
+                    print(f"Ошибка при вставке строки {row_num}: {e}")
+                    continue
+            print(f'Amount of missing rows: {count}')
+
+        try:
+            self.conn.commit()
+            print("Транзакция зафиксирована.")
+        except Exception as e:
+            print(f"Ошибка при фиксации транзакции: {e}")

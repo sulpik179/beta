@@ -2,6 +2,7 @@ import csv
 import re
 import os
 
+
 def clean_transcription(transcr: str) -> str:
     """Удаляет внешние / или [ слева и / или ] справа, если они есть."""
     # Сохраняем оригинал для сравнения
@@ -12,7 +13,7 @@ def clean_transcription(transcr: str) -> str:
     return cleaned
 
 # 🔧 Настройка — укажи имя своего CSV-файла здесь:
-INPUT_FILE = "words.csv"  # ← измени, если имя другое
+INPUT_FILE = "data/words.csv"  # ← измени, если имя другое
 
 # Автоматическое имя выходного файла: words_cleaned.csv
 basename, ext = os.path.splitext(INPUT_FILE)
