@@ -1,11 +1,11 @@
-from db_manage import Database
+from db_manager import Database
 
 
 def main():
-    csv_path = 'csv/o.csv'
+    csv_path = 'csv/add.csv'
     db = Database()
     db.add_words_from_csv(csv_path)
-    print('The download is completed')
+    print('Загрузка завершена')
     db.close()
 
 

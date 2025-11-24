@@ -80,7 +80,7 @@ class Database:
             reader = csv.reader(f, delimiter=';')
             for row_num, row in enumerate(reader, start=1):
                 if len(row) < 9:
-                    print(f'Missing the row {row_num} (not enough data): {row}')
+                    print(f'Пропущена строка {row_num} (недостаточно данных): {row}')
                     count += 1
                     continue
                 
@@ -92,7 +92,7 @@ class Database:
                 ).fetchone()
                 
                 if existing:
-                    print(f'Missing the line {row_num} (already exists): {word_en} - {word_ru}')
+                    print(f'Пропущена строка {row_num} (уже существует): {word_en} - {word_ru}')
                     continue
                 try:
                     self.cursor.execute('''
@@ -106,7 +106,7 @@ class Database:
                 except Exception as e:
                     print(f"Ошибка при вставке строки {row_num}: {e}")
                     continue
-            print(f'Amount of missing rows: {count}')
+            print(f'Пропущено строк: {count}')
 
         try:
             self.conn.commit()

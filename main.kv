@@ -1,0 +1,139 @@
+
+<LanguageSelectPopup>:
+    title: 'Select language'
+    font_name: 'JetBrainsMono'
+    size_hint: 0.6, 0.4
+    auto_dismiss: False
+
+    BoxLayout:
+        orientation: 'vertical'
+        Button:
+            text: 'en  ->  ru'
+            font_name: 'JetBrainsMono'
+            on_press: root.set_language('en_ru')
+        Button:
+            text: 'ru  ->  en'
+            font_name: 'JetBrainsMono'
+            on_press: root.set_language('ru_en')
+
+<MainScreen>:
+    name: 'main'
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 20
+        padding: 20
+
+        Label:
+            text: 'beta'
+            font_size: 32
+            font_name: 'JetBrainsMono'
+
+        Button:
+            text: 'Learn'
+            font_size: 24
+            font_name: 'JetBrainsMono'
+            on_press: app.root.current = 'learn'
+
+        Button:
+            text: 'Practice'
+            font_size: 24
+            font_name: 'JetBrainsMono'
+            on_press: app.root.current = 'practice'
+
+        Button:
+            text: 'Dictionary'
+            font_size: 24
+            font_name: 'JetBrainsMono'
+            on_press: app.root.current = 'dictionary'
+
+<LearnScreen>:
+    name: 'learn'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 10
+
+        Label:
+            id: word_label
+            text: 'Loading...'
+            font_size: 24
+            font_name: 'JetBrainsMono'
+        Label:
+            id: transcription_label
+            text: ''
+            font_size: 18
+            font_name: 'DejaVuSans'
+        Label:
+            id: sentence_label
+            text: ''
+            font_size: 16
+            font_name: 'JetBrainsMono'
+
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: 10
+            AnswerButton:
+                id: option1
+                text: '...'
+                font_size: 18
+                font_name: 'JetBrainsMono'
+                on_press: root.check_answer(self.text)
+                border_color: 0, 0, 0, 0
+            AnswerButton:
+                id: option2
+                text: '...'
+                font_size: 18
+                font_name: 'JetBrainsMono'
+                on_press: root.check_answer(self.text)
+                border_color: 0, 0, 0, 0
+            AnswerButton:
+                id: option3
+                text: '...'
+                font_size: 18
+                font_name: 'JetBrainsMono'
+                on_press: root.check_answer(self.text)
+                border_color: 0, 0, 0, 0
+
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: 10
+            Button:
+                text: 'Main'
+                font_name: 'JetBrainsMono'
+                on_press: app.root.current = 'main'
+            Button:
+                id: next_button
+                text: 'Next'
+                font_name: 'JetBrainsMono'
+                disabled: True
+                opacity: 0
+                on_press: root.next_word()
+
+<PracticeScreen>:
+    name: 'practice'
+    BoxLayout:
+        orientation: 'vertical'
+    Label:
+        text: 'Practice screen'
+    Button:
+        text: 'Main'
+        on_press: app.root.current = 'main'
+
+<DictionaryScreen>:
+    name: 'dictionary'
+    ScrollView:
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_y: None
+            height: self.minimum_height
+            id: dict_layout
+
+<FlashcardScreenManager>:
+    MainScreen:
+        name: 'main'
+    LearnScreen:
+        name: 'learn'
+    PracticeScreen:
+        name: 'practice'
+    DictionaryScreen:
+        name: 'dictionary'
