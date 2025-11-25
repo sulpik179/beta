@@ -113,11 +113,63 @@
     name: 'practice'
     BoxLayout:
         orientation: 'vertical'
-    Label:
-        text: 'Practice screen'
-    Button:
-        text: 'Main'
-        on_press: app.root.current = 'main'
+        padding: 20
+        spacing: 10
+        Label:
+            id: word_label
+            text: 'Loading...'
+            font_size: 24
+            font_name: 'JetBrainsMono'
+        Label:
+            id: transcription_label
+            text: ''
+            font_size: 18
+            font_name: 'DejaVuSans'
+        Label:
+            id: sentence_label
+            text: ''
+            font_size: 16
+            font_name: 'JetBrainsMono'
+
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: 10
+            AnswerButton:
+                id: option1
+                text: '...'
+                font_size: 18
+                font_name: 'JetBrainsMono'
+                on_press: root.check_answer(self.text)
+                border_color: 0, 0, 0, 0
+            AnswerButton:
+                id: option2
+                text: '...'
+                font_size: 18
+                font_name: 'JetBrainsMono'
+                on_press: root.check_answer(self.text)
+                border_color: 0, 0, 0, 0
+            AnswerButton:
+                id: option3
+                text: '...'
+                font_size: 18
+                font_name: 'JetBrainsMono'
+                on_press: root.check_answer(self.text)
+                border_color: 0, 0, 0, 0
+
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: 10
+            Button:
+                text: 'Main'
+                font_name: 'JetBrainsMono'
+                on_press: app.root.current = 'main'
+            Button:
+                id: next_button
+                text: 'Next'
+                font_name: 'JetBrainsMono'
+                disabled: True
+                opacity: 0
+                on_press: root.next_word()
 
 <DictionaryScreen>:
     name: 'dictionary'

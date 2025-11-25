@@ -1,2 +1,3 @@
 beta/
-words.db/
+test.db
+__pycache__/

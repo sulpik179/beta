@@ -2,7 +2,8 @@ import sqlite3
 from pathlib import Path
 
 
-DB_PATH = Path('data/words.db')
+#DB_PATH = Path('data/words.db')
+DB_PATH = Path('data/test.db')
 SCHEMA_PATH = Path('data/schema.sql')
 
 class Database:
@@ -19,7 +20,8 @@ class Database:
 
     def get_word_for_learn(self):
         return self.cursor.execute(
-            'SELECT * FROM words WHERE id NOT IN (SELECT word_id FROM dictionary) ORDER BY RANDOM() LIMIT 1'
+            'SELECT * FROM words WHERE id NOT IN (SELECT word_id FROM dictionary) AND ' \
+            'id NOT IN (SELECT word_id FROM practice) ORDER BY RANDOM() LIMIT 1'
         ).fetchone()
 
     def add_to_practice(self, word_id):
@@ -83,14 +85,14 @@ class Database:
                     print(f'Пропущена строка {row_num} (недостаточно данных): {row}')
                     count += 1
                     continue
-                
+
                 word_en, word_ru, distractor_ru1, distractor_ru2, distractor_en1, distractor_en2, sentence_ru, sentence_en, transcription = row
-                
+
                 existing = self.cursor.execute(
                     'SELECT 1 FROM words WHERE word_en = ? AND word_ru = ?',
                     (word_en, word_ru)
                 ).fetchone()
-                
+
                 if existing:
                     print(f'Пропущена строка {row_num} (уже существует): {word_en} - {word_ru}')
                     continue
