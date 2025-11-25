@@ -2,8 +2,8 @@ import sqlite3
 from pathlib import Path
 
 
-#DB_PATH = Path('data/words.db')
-DB_PATH = Path('data/test.db')
+DB_PATH = Path('data/words.db')
+#DB_PATH = Path('data/test.db')
 SCHEMA_PATH = Path('data/schema.sql')
 
 class Database:
@@ -115,3 +115,6 @@ class Database:
             print("Транзакция зафиксирована.")
         except Exception as e:
             print(f"Ошибка при фиксации транзакции: {e}")
+
+    def get_all_dict_ids(self):
+        return [row[0] for row in self.cursor.execute('SELECT word_id FROM dictionary').fetchall()]

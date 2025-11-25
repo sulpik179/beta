@@ -1,8 +1,8 @@
 
 <LanguageSelectPopup>:
-    title: 'Select language'
+    title: ''
     font_name: 'JetBrainsMono'
-    size_hint: 0.6, 0.4
+    size_hint: 0.4, 0.3
     auto_dismiss: False
 
     BoxLayout:
@@ -173,12 +173,20 @@
 
 <DictionaryScreen>:
     name: 'dictionary'
-    ScrollView:
-        BoxLayout:
-            orientation: 'vertical'
+    BoxLayout:
+        orientation: 'vertical'
+        Button:
+            text: 'Main'
             size_hint_y: None
-            height: self.minimum_height
-            id: dict_layout
+            height: 50
+            font_name: 'JetBrainsMono'
+            on_press: app.root.current = 'main'
+        ScrollView:
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint_y: None
+                height: self.minimum_height
+                id: dict_layout
 
 <FlashcardScreenManager>:
     MainScreen:
