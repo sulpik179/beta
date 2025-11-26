@@ -66,3 +66,13 @@ jobs:
         with:
           name: beta-apk
           path: bin/*.apk
+      - name: Debug SDK layout
+        run: |
+          echo "ANDROID_HOME = $ANDROID_HOME"
+          ls -la "$ANDROID_HOME/build-tools/"
+          ls -la "$ANDROID_HOME/build-tools/34.0.0/" | grep aidl
+      - name: Cache .buildozer
+        uses: actions/cache@v4
+        with:
+          path: ~/.buildozer
+          key: buildozer-${{ hashFiles('buildozer.spec') }}
