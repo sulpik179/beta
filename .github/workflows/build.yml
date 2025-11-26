@@ -1,84 +1,115 @@
-name: Build APK
-on: [push]
+name: 🛠️ Build Beta APK
+on:
+  push:
+    branches: [ main, develop ]
+  workflow_dispatch:  # allow manual run
 
 jobs:
   build:
     runs-on: ubuntu-22.04
     env:
-      # 🔑 КРИТИЧНО: задаём ANDROID_HOME явно
+      # 🔑 Critical: set ANDROID_HOME explicitly
       ANDROID_HOME: ${{ github.workspace }}/.buildozer/android/platform/android-sdk
       ANDROID_SDK_ROOT: ${{ github.workspace }}/.buildozer/android/platform/android-sdk
 
     steps:
-      - uses: actions/checkout@v4
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: 🐍 Set up Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Install system dependencies
+      - name: 📦 Install system dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y \
-            git zip unzip openjdk-17-jdk autoconf libtool pkg-config \
-            zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev
+            git zip unzip openjdk-17-jdk \
+            autoconf libtool pkg-config \
+            zlib1g-dev libncurses5-dev libncursesw5-dev \
+            libtinfo5 cmake libffi-dev
 
-      - name: Install Buildozer & dependencies
+      - name: 🧰 Install Buildozer & Cython
         run: |
           pip install --upgrade pip
-          pip install buildozer cython
+          pip install buildozer==1.5.0 cython==3.0.10
 
-      # 🔧 ШАГ 1: Создаём структуру SDK и устанавливаем cmdline-tools ВРУЧНУЮ
-      - name: Set up Android SDK (cmdline-tools)
+      # 🔁 Cache Android SDK (speeds up subsequent runs)
+      - name: 🗃️ Cache Android SDK
+        uses: actions/cache@v4
+        id: cache-sdk
+        with:
+          path: ${{ env.ANDROID_HOME }}
+          key: android-sdk-34-ndk25b-v2
+
+      # 🛠️ Install cmdline-tools ONLY if not cached
+      - name: 🔧 Set up Android SDK (cmdline-tools)
+        if: steps.cache-sdk.outputs.cache-hit != 'true'
         run: |
           mkdir -p "$ANDROID_HOME"
           cd "$ANDROID_HOME"
-          # Скачиваем и распаковываем cmdline-tools (официальный способ)
+
+          # Remove leftovers
+          rm -rf cmdline-tools 2>/dev/null || true
+
+          # Download and extract
           wget -q https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip
           unzip -q commandlinetools-linux-*.zip
           rm commandlinetools-linux-*.zip
-          # Buildozer ожидает cmdline-tools/latest/
-          mkdir -p cmdline-tools
-          mv cmdline-tools/* cmdline-tools/
-          rmdir cmdline-tools/latest 2>/dev/null || true
-          mv cmdline-tools cmdline-tools/latest
 
-      # 🔑 ШАГ 2: Принимаем лицензии
-      - name: Accept Android SDK licenses
+          # Fix dir structure → cmdline-tools/latest/
+          mv cmdline-tools cmdline-tools-latest
+          mkdir -p cmdline-tools
+          mv cmdline-tools-latest cmdline-tools/latest
+
+      - name: ✅ Verify sdkmanager
+        run: |
+          if [ ! -f "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" ]; then
+            echo "❌ sdkmanager not found!"
+            exit 1
+          fi
+          echo "✅ sdkmanager OK"
+
+      - name: 📜 Accept Android SDK licenses
         run: |
           mkdir -p "$ANDROID_HOME/licenses"
           echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license"
           echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_HOME/licenses/android-sdk-preview-license"
 
-      # ✅ ШАГ 3: Устанавливаем build-tools, platform, NDK — ТЕПЕРЬ sdkmanager РАБОТАЕТ
-      - name: Install Android SDK packages
+      - name: 📲 Install Android packages
         run: |
           yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" \
             "platforms;android-34" \
             "build-tools;34.0.0" \
             "ndk;25.2.9519653"
 
-      # 🔍 ШАГ 4: Проверяем aidl ДО сборки!
-      - name: Verify aidl exists
+      - name: 🔍 Verify aidl exists
         run: |
-          ls -la "$ANDROID_HOME/build-tools/34.0.0/" | grep aidl || { echo "❌ aidl NOT FOUND!"; exit 1; }
-          echo "✅ aidl found at: $ANDROID_HOME/build-tools/34.0.0/aidl"
+          AIDL_PATH="$ANDROID_HOME/build-tools/34.0.0/aidl"
+          if [ ! -f "$AIDL_PATH" ]; then
+            echo "❌ aidl NOT FOUND at $AIDL_PATH"
+            ls -la "$ANDROID_HOME/build-tools/"
+            exit 1
+          fi
+          echo "✅ aidl found at: $AIDL_PATH"
 
-      # 🎯 ШАГ 5: Собираем
-      - name: Build APK
+      - name: 🏗️ Build APK (debug)
         run: |
           buildozer -v android debug
 
-      - name: Upload APK
+      - name: 📤 Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: beta-apk
+          name: beta-debug-apk
           path: bin/*.apk
+          retention-days: 7
 
-      # Кэш — в КОНЕЦ, чтобы не мешал debug
-      - name: Cache .buildozer
+      # 🗃️ Cache .buildozer (except SDK — already cached separately)
+      - name: 🗃️ Cache .buildozer (Python deps, NDK, etc.)
         uses: actions/cache@v4
         with:
           path: ~/.buildozer
-          key: buildozer-${{ hashFiles('buildozer.spec') }}
+          key: buildozer-python311-kivy230-${{ hashFiles('buildozer.spec') }}
+          restore-keys: |
+            buildozer-python311-kivy230-
