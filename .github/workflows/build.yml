@@ -93,3 +93,4 @@ jobs:
           name: Beta-debug-apk
           path: bin/*.apk
           retention-days: 14
+          
