@@ -39,40 +39,59 @@ jobs:
 
       # Кэш Android SDK
       - name: Cache Android SDK
+        id: cache-sdk
         uses: actions/cache@v4
         with:
           path: ${{ env.ANDROID_HOME }}
           key: android-sdk-v5-${{ runner.os }}
           restore-keys: android-sdk-v5-
 
-      # Кэш .buildozer (всё кроме SDK)
-      - name: Cache .buildozer
-        uses: actions/cache@v4
-        with:
-          path: ~/.buildozer
-          key: buildozer-v11-py311-${{ hashFiles('buildozer.spec') }}
-          restore-keys: buildozer-v11-py311-
-
-      # Установка cmdline-tools (самая свежая версия)
+      # Установка cmdline-tools (только если кэш не попал)
       - name: Setup Android SDK (cmdline-tools latest)
         if: steps.cache-sdk.outputs.cache-hit != 'true'
         run: |
           mkdir -p "$ANDROID_HOME"
           cd "$ANDROID_HOME"
+          
+          # Скачиваем свежую версию (12.0)
           wget -q https://dl.google.com/android/repository/commandlinetools-linux-12266719_latest.zip
+          
+          # Распаковываем
           unzip -q commandlinetools-linux-*.zip
           rm commandlinetools-linux-*.zip
-          mkdir -p cmdline-tools
-          mv cmdline-tools cmdline-tools/latest
+          
+          # ФИКС: Проверяем структуру и правильно перемещаем в cmdline-tools/latest
+          if [ -d "cmdline-tools" ]; then
+            # Если уже есть cmdline-tools (стандартная структура), просто перемещаем в latest
+            mkdir -p cmdline-tools
+            mv cmdline-tools/* cmdline-tools/latest/ 2>/dev/null || true
+            rmdir cmdline-tools 2>/dev/null || true
+          else
+            # Если распаковалось в корень (старые версии), создаём структуру
+            mkdir -p cmdline-tools/latest
+            mv bin cmdline-tools/latest/ 2>/dev/null || true
+            mv lib cmdline-tools/latest/ 2>/dev/null || true
+            mv NOTICE.txt cmdline-tools/latest/ 2>/dev/null || true
+            mv source.properties cmdline-tools/latest/ 2>/dev/null || true
+          fi
+          
+          # Проверяем, что sdkmanager на месте
+          if [ ! -f "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" ]; then
+            echo "❌ sdkmanager not found after setup!"
+            ls -la "$ANDROID_HOME/cmdline-tools/"
+            exit 1
+          fi
+          echo "✅ SDK setup complete: $(ls -la "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager")"
 
-      # Лицензии
+      # Лицензии (всегда, на всякий)
       - name: Accept Android licenses
         run: |
           mkdir -p "$ANDROID_HOME/licenses"
           echo "8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license"
           echo "84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_HOME/licenses/android-sdk-preview-license"
+          echo "d56f5187479451eabf01c1707b1bf2b2aeb3d7e6" > "$ANDROID_HOME/licenses/android-sdk-gpu-debug-license"  # На всякий
 
-      # Установка нужных компонентов
+      # Установка компонентов
       - name: Install Android platforms & tools
         run: |
           yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --sdk_root="$ANDROID_HOME" \
@@ -81,16 +100,23 @@ jobs:
             "platform-tools" \
             "ndk;26.1.10909125"
 
-      # Сборка debug APK
+      # Кэш .buildozer (после SDK, чтобы не конфликтовало)
+      - name: Cache .buildozer
+        uses: actions/cache@v4
+        with:
+          path: ~/.buildozer
+          key: buildozer-v11-py311-${{ hashFiles('buildozer.spec') }}
+          restore-keys: buildozer-v11-py311-
+
+      # Сборка APK
       - name: Build with Buildozer (debug)
         run: |
           buildozer -v android debug
 
-      # Загрузка готового APK
+      # Артефакт
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: Beta-debug-apk
           path: bin/*.apk
           retention-days: 14
-          
