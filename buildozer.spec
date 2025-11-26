@@ -58,4 +58,5 @@ log_level = 2
 
 android.accept_sdk_license = True
 
-android.build_tools = 33.0.0
+android.build_tools = 34.0.0
+android.gradle_dependencies = 'com.android.tools.build:gradle:7.4.2'
