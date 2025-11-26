@@ -1,62 +1,75 @@
 [app]
 
 # (str) Title of your application
-title = beta
+title = Beta
 
 # (str) Package name
 package.name = beta
 
-# (str) Package domain
-package.domain = org.example
+# (str) Package domain (reverse DNS)
+package.domain = org.betaapp
 
 # (str) Application version
-version = 1.0
+version = 0.1.0
 
 # (list) Application requirements
-requirements = python3, kivy, sqlite3
+requirements = python3==3.11.9, kivy==2.3.0, sqlite3, certifi, android
 
-# (str) Source code where the main.py live
+# (str) Source directory
 source.dir = .
 
-# (list) List of inclusions using pattern matching
-source.include_patterns = assets/**, gui/**, db_manager.py, main.py, main.kv
+# (list) Include patterns
+source.include_patterns = 
+    assets/**,
+    gui/**,
+    db_manager.py,
+    main.py,
+    main.kv
 
-# (list) Source files to exclude
-source.exclude_exts = spec
+# (list) Exclude unnecessary files
+source.exclude_patterns = 
+    .git/**,
+    .github/**,
+    README.md,
+    LICENSE,
+    *.yml,
+    *.spec,
+    *.log
 
-# (str) Presplash of the application
-presplash.filename = %(source.dir)s/assets/presplash.jpg  # или убери эту строку
+# (str) App icon — 512x512 PNG
+icon.filename = %(source.dir)s/assets/icon.png
 
-# (str) Icon of the application
-icon.filename = %(source.dir)s/assets/icon.png  # или убери
-
-# (str) Supported orientation (one of landscape, portrait or all)
+# (str) Orientation
 orientation = portrait
 
-# (list) Permissions
-android.permissions = INTERNET, WRITE_EXTERNAL_STORAGE, READ_EXTERNAL_STORAGE
+# (list) Android permissions
+android.permissions = INTERNET, READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE
 
-# (int) Target Android API, should be as high as possible.
-android.api = 30
-
-# (int) Minimum API
+# (int) Target and min API
+android.api = 34
 android.minapi = 21
 
-# (int) Android SDK version to use
-android.sdk = 34
-
-# (str) Android NDK version to use
-android.ndk = 25b  
-
-# (bool) Enable AndroidX support
+# (bool) AndroidX support — REQUIRED
 android.enable_androidx = True
+
+# (str) Gradle version — compatible with API 34
+android.gradle_dependencies = com.android.tools.build:gradle:7.4.2
+
+# (str) Bootstrap — standard for Kivy
+p4a.bootstrap = sdl2
+
+# (str) Use develop branch for latest fixes
+p4a.branch = develop
+
+# (bool) Clean build (safe in CI)
+build.clean = True
+
 
 [buildozer]
 
-# (int) Log level (0 = error only, 1 = info, 2 = debug)
+# (int) Log level
 log_level = 2
 
-android.accept_sdk_license = True
-
-android.build_tools = 34.0.0
-android.gradle_dependencies = 'com.android.tools.build:gradle:7.4.2'
+# (str) Build dirs
+build_dir = .buildozer
+bin_dir = bin
