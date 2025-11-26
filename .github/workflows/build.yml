@@ -4,6 +4,11 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-22.04
+    env:
+      # 🔑 КРИТИЧНО: задаём ANDROID_HOME явно
+      ANDROID_HOME: ${{ github.workspace }}/.buildozer/android/platform/android-sdk
+      ANDROID_SDK_ROOT: ${{ github.workspace }}/.buildozer/android/platform/android-sdk
+
     steps:
       - uses: actions/checkout@v4
 
@@ -16,61 +21,62 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y \
-            git \
-            zip \
-            unzip \
-            openjdk-17-jdk \
-            autoconf \
-            libtool \
-            pkg-config \
-            zlib1g-dev \
-            libncurses5-dev \
-            libncursesw5-dev \
-            libtinfo5 \
-            cmake \
-            libffi-dev
+            git zip unzip openjdk-17-jdk autoconf libtool pkg-config \
+            zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev
 
       - name: Install Buildozer & dependencies
         run: |
           pip install --upgrade pip
           pip install buildozer cython
 
-      - name: Accept Android SDK licenses (CRITICAL!)
+      # 🔧 ШАГ 1: Создаём структуру SDK и устанавливаем cmdline-tools ВРУЧНУЮ
+      - name: Set up Android SDK (cmdline-tools)
         run: |
-          mkdir -p "$ANDROID_HOME/licenses" || true
-          # Принять основную лицензию SDK
+          mkdir -p "$ANDROID_HOME"
+          cd "$ANDROID_HOME"
+          # Скачиваем и распаковываем cmdline-tools (официальный способ)
+          wget -q https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip
+          unzip -q commandlinetools-linux-*.zip
+          rm commandlinetools-linux-*.zip
+          # Buildozer ожидает cmdline-tools/latest/
+          mkdir -p cmdline-tools
+          mv cmdline-tools/* cmdline-tools/
+          rmdir cmdline-tools/latest 2>/dev/null || true
+          mv cmdline-tools cmdline-tools/latest
+
+      # 🔑 ШАГ 2: Принимаем лицензии
+      - name: Accept Android SDK licenses
+        run: |
+          mkdir -p "$ANDROID_HOME/licenses"
           echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license"
-          # Принять preview-лицензию (на всякий)
           echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_HOME/licenses/android-sdk-preview-license"
 
-      - name: Install Android SDK components explicitly
+      # ✅ ШАГ 3: Устанавливаем build-tools, platform, NDK — ТЕПЕРЬ sdkmanager РАБОТАЕТ
+      - name: Install Android SDK packages
         run: |
-          # Установим стабильные версии:
-          yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager \
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" \
             "platforms;android-34" \
             "build-tools;34.0.0" \
-            "ndk;25.2.9519653"  # NDK r25b — совместим с p4a
+            "ndk;25.2.9519653"
 
+      # 🔍 ШАГ 4: Проверяем aidl ДО сборки!
       - name: Verify aidl exists
         run: |
-          find "$ANDROID_HOME" -name aidl -type f | head -n 5
-          # Должен найти: .../build-tools/34.0.0/aidl
+          ls -la "$ANDROID_HOME/build-tools/34.0.0/" | grep aidl || { echo "❌ aidl NOT FOUND!"; exit 1; }
+          echo "✅ aidl found at: $ANDROID_HOME/build-tools/34.0.0/aidl"
 
+      # 🎯 ШАГ 5: Собираем
       - name: Build APK
         run: |
           buildozer -v android debug
-        # Или: buildozer android release — если нужен release APK
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: beta-apk
           path: bin/*.apk
-      - name: Debug SDK layout
-        run: |
-          echo "ANDROID_HOME = $ANDROID_HOME"
-          ls -la "$ANDROID_HOME/build-tools/"
-          ls -la "$ANDROID_HOME/build-tools/34.0.0/" | grep aidl
+
+      # Кэш — в КОНЕЦ, чтобы не мешал debug
       - name: Cache .buildozer
         uses: actions/cache@v4
         with:
