@@ -1,5 +1,5 @@
 [app]
-
+ 
 title = Beta
 package.name = beta
 package.domain = org.betaapp
