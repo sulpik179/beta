@@ -57,3 +57,5 @@ android.enable_androidx = True
 log_level = 2
 
 android.accept_sdk_license = True
+
+android.build_tools = 33.0.0
