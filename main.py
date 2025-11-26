@@ -29,10 +29,22 @@ class FlashcardScreenManager(ScreenManager):
 
 class FlashcardApp(App):
     def build(self):
-        self.font_name = 'JetBrainsMono'
-        self.db = Database()
+        user_data_dir = self.user_data_dir
+
+        local_db_path = os.path.join(user_data_dir, 'words.db')
+
+        if not os.path.exists(local_db_path):
+            source_db_path = resource_find('words.db')
+            if source_db_path:
+                copy(source_db_path, local_db_path)
+                print("БД скопирована из assets в user_data_dir")
+            else:
+                print("Ошибка: words.db не найдена в ресурсах")
+
+        self.db = Database(local_db_path)
+
         return FlashcardScreenManager()    
-        
+
     def on_stop(self):
         self.db.close()
 

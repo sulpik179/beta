@@ -2,18 +2,24 @@ import sqlite3
 from pathlib import Path
 
 
-DB_PATH = Path('data/words.db')
-#DB_PATH = Path('data/test.db')
+#DB_PATH = Path('data/words.db')
+DB_PATH = Path('data/test.db')
 SCHEMA_PATH = Path('data/schema.sql')
 
 class Database:
-    def __init__(self):
-        self.conn = sqlite3.connect(DB_PATH)
+    def __init__(self, db_path=None):
+        if db_path is None:
+            db_path = Path('data/words.db')
+        else:
+            db_path = Path(db_path)
+
+        self.conn = sqlite3.connect(db_path)
         self.cursor = self.conn.cursor()
         self._apply_schema()
 
-    def _apply_schema(self):    
-        with open(SCHEMA_PATH, 'r', encoding='utf-8') as f:
+    def _apply_schema(self):
+        schema_path = Path('data/schema.sql')  
+        with open(schema_path, 'r', encoding='utf-8') as f:
             sql = f.read()
         self.cursor.executescript(sql)
         self.conn.commit()
