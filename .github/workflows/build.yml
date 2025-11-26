@@ -1,122 +1,21 @@
-name: Build Beta APK (Kivy + Buildozer)
-
-on:
-  push:
-    branches: [ main, develop ]
-  workflow_dispatch:
-
-jobs:
-  build:
-    runs-on: ubuntu-22.04
-    env:
-      ANDROID_HOME: ${{ github.workspace }}/.android-sdk
-      ANDROID_SDK_ROOT: ${{ github.workspace }}/.android-sdk
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          submodules: recursive
-
-      - name: Set up Python 3.11
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Install system dependencies
+    # Установка cmdline-tools (гарантированно работает с новой структурой ZIP)
+    - name: Setup Android SDK (cmdline-tools latest)
+      if: steps.cache-sdk.outputs.cache-hit != 'true'
         run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y \
-            git zip unzip openjdk-17-jdk \
-            autoconf libtool pkg-config zlib1g-dev libncurses5-dev \
-            libncursesw5-dev libtinfo5 libffi-dev libssl-dev \
-            cmake ninja-build
+         mkdir -p "$ANDROID_HOME/cmdline-tools"
+         cd "$ANDROID_HOME"
 
-      - name: Install Buildozer & Cython
-        run: |
-          pip install --upgrade pip
-          pip install buildozer==1.5.0 cython==3.0.11
+         wget -q https://dl.google.com/android/repository/commandlinetools-linux-12266719_latest.zip
+         unzip -q commandlinetools-linux-*.zip -d cmdline-tools/
+         rm commandlinetools-linux-*.zip
 
-      # Кэш Android SDK
-      - name: Cache Android SDK
-        id: cache-sdk
-        uses: actions/cache@v4
-        with:
-          path: ${{ env.ANDROID_HOME }}
-          key: android-sdk-v5-${{ runner.os }}
-          restore-keys: android-sdk-v5-
+          # Переименовываем внутреннюю папку в latest (теперь это всегда нужно)
+          mv cmdline-tools/cmdline-tools cmdline-tools/latest
 
-      # Установка cmdline-tools (только если кэш не попал)
-      - name: Setup Android SDK (cmdline-tools latest)
-        if: steps.cache-sdk.outputs.cache-hit != 'true'
-        run: |
-          mkdir -p "$ANDROID_HOME"
-          cd "$ANDROID_HOME"
-          
-          # Скачиваем свежую версию (12.0)
-          wget -q https://dl.google.com/android/repository/commandlinetools-linux-12266719_latest.zip
-          
-          # Распаковываем
-          unzip -q commandlinetools-linux-*.zip
-          rm commandlinetools-linux-*.zip
-          
-          # ФИКС: Проверяем структуру и правильно перемещаем в cmdline-tools/latest
-          if [ -d "cmdline-tools" ]; then
-            # Если уже есть cmdline-tools (стандартная структура), просто перемещаем в latest
-            mkdir -p cmdline-tools
-            mv cmdline-tools/* cmdline-tools/latest/ 2>/dev/null || true
-            rmdir cmdline-tools 2>/dev/null || true
-          else
-            # Если распаковалось в корень (старые версии), создаём структуру
-            mkdir -p cmdline-tools/latest
-            mv bin cmdline-tools/latest/ 2>/dev/null || true
-            mv lib cmdline-tools/latest/ 2>/dev/null || true
-            mv NOTICE.txt cmdline-tools/latest/ 2>/dev/null || true
-            mv source.properties cmdline-tools/latest/ 2>/dev/null || true
-          fi
-          
-          # Проверяем, что sdkmanager на месте
+          # Проверка
           if [ ! -f "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" ]; then
-            echo "❌ sdkmanager not found after setup!"
-            ls -la "$ANDROID_HOME/cmdline-tools/"
+            echo "❌ sdkmanager всё ещё не найден!"
+            find "$ANDROID_HOME" -name sdkmanager
             exit 1
           fi
-          echo "✅ SDK setup complete: $(ls -la "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager")"
-
-      # Лицензии (всегда, на всякий)
-      - name: Accept Android licenses
-        run: |
-          mkdir -p "$ANDROID_HOME/licenses"
-          echo "8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license"
-          echo "84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_HOME/licenses/android-sdk-preview-license"
-          echo "d56f5187479451eabf01c1707b1bf2b2aeb3d7e6" > "$ANDROID_HOME/licenses/android-sdk-gpu-debug-license"  # На всякий
-
-      # Установка компонентов
-      - name: Install Android platforms & tools
-        run: |
-          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --sdk_root="$ANDROID_HOME" \
-            "platforms;android-34" \
-            "build-tools;34.0.0" \
-            "platform-tools" \
-            "ndk;26.1.10909125"
-
-      # Кэш .buildozer (после SDK, чтобы не конфликтовало)
-      - name: Cache .buildozer
-        uses: actions/cache@v4
-        with:
-          path: ~/.buildozer
-          key: buildozer-v11-py311-${{ hashFiles('buildozer.spec') }}
-          restore-keys: buildozer-v11-py311-
-
-      # Сборка APK
-      - name: Build with Buildozer (debug)
-        run: |
-          buildozer -v android debug
-
-      # Артефакт
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: Beta-debug-apk
-          path: bin/*.apk
-          retention-days: 14
+          echo "✅ sdkmanager найден и готов!"
