@@ -8,6 +8,31 @@ from gui.utils.popup import LanguageSelectPopup
 
 class PracticeScreen(Screen):
     def on_enter(self):
+        app = App.get_running_app()
+        word_row = app.db.get_word_for_practice()
+        if not word_row:
+            self.ids.word_label.text = 'Ещё нет слов для повторения :('
+            self.ids.transcription_label.text = ''
+            self.ids.sentence_label.text = 'Попробуйте режим Learn'
+        
+            self.ids.option1.opacity = 0
+            self.ids.option1.disabled = True
+            self.ids.option2.opacity = 0
+            self.ids.option2.disabled = True
+            self.ids.option3.opacity = 0
+            self.ids.option3.disabled = True
+
+            self.ids.next_button.opacity = 0
+            self.ids.next_button.disabled = True
+
+            
+            self.ids.next_button.text = 'Main'
+            self.ids.next_button.disabled = False
+            self.ids.next_button.opacity = 1
+            self.ids.next_button.bind(on_press=self.go_to_main)
+
+            return
+
         popup = LanguageSelectPopup(callback=self.start_practice)
         popup.open()
 
@@ -102,4 +127,12 @@ class PracticeScreen(Screen):
         self.ids.next_button.opacity = 1
 
     def next_word(self):
-        self.start_practice(self.lang_code)
+        if self.ids.next_button.text == 'Main':
+            self.go_to_main(None)
+            return
+        self.start_learning(self.lang_code)
+
+    def go_to_main(self, instance):
+        from kivy.app import App
+        app = App.get_running_app()
+        app.root.current = 'main'
