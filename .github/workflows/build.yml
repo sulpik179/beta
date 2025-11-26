@@ -1,115 +1,95 @@
-name: 🛠️ Build Beta APK
+name: Build Beta APK (Kivy + Buildozer)
+
 on:
   push:
     branches: [ main, develop ]
-  workflow_dispatch:  # allow manual run
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-22.04
     env:
-      # 🔑 Critical: set ANDROID_HOME explicitly
-      ANDROID_HOME: ${{ github.workspace }}/.buildozer/android/platform/android-sdk
-      ANDROID_SDK_ROOT: ${{ github.workspace }}/.buildozer/android/platform/android-sdk
+      ANDROID_HOME: ${{ github.workspace }}/.android-sdk
+      ANDROID_SDK_ROOT: ${{ github.workspace }}/.android-sdk
 
     steps:
-      - name: 📥 Checkout code
+      - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          submodules: recursive
 
-      - name: 🐍 Set up Python 3.11
+      - name: Set up Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: 📦 Install system dependencies
+      - name: Install system dependencies
         run: |
-          sudo apt-get update
+          sudo apt-get update -qq
           sudo apt-get install -y \
             git zip unzip openjdk-17-jdk \
-            autoconf libtool pkg-config \
-            zlib1g-dev libncurses5-dev libncursesw5-dev \
-            libtinfo5 cmake libffi-dev
+            autoconf libtool pkg-config zlib1g-dev libncurses5-dev \
+            libncursesw5-dev libtinfo5 libffi-dev libssl-dev \
+            cmake ninja-build
 
-      - name: 🧰 Install Buildozer & Cython
+      - name: Install Buildozer & Cython
         run: |
           pip install --upgrade pip
-          pip install buildozer==1.5.0 cython==3.0.10
+          pip install buildozer==1.5.0 cython==3.0.11
 
-      # 🔁 Cache Android SDK (speeds up subsequent runs)
-      - name: 🗃️ Cache Android SDK
+      # Кэш Android SDK
+      - name: Cache Android SDK
         uses: actions/cache@v4
-        id: cache-sdk
         with:
           path: ${{ env.ANDROID_HOME }}
-          key: android-sdk-34-ndk25b-v2
+          key: android-sdk-v5-${{ runner.os }}
+          restore-keys: android-sdk-v5-
 
-      # 🛠️ Install cmdline-tools ONLY if not cached
-      - name: 🔧 Set up Android SDK (cmdline-tools)
+      # Кэш .buildozer (всё кроме SDK)
+      - name: Cache .buildozer
+        uses: actions/cache@v4
+        with:
+          path: ~/.buildozer
+          key: buildozer-v11-py311-${{ hashFiles('buildozer.spec') }}
+          restore-keys: buildozer-v11-py311-
+
+      # Установка cmdline-tools (самая свежая версия)
+      - name: Setup Android SDK (cmdline-tools latest)
         if: steps.cache-sdk.outputs.cache-hit != 'true'
         run: |
           mkdir -p "$ANDROID_HOME"
           cd "$ANDROID_HOME"
-
-          # Remove leftovers
-          rm -rf cmdline-tools 2>/dev/null || true
-
-          # Download and extract
-          wget -q https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip
+          wget -q https://dl.google.com/android/repository/commandlinetools-linux-12266719_latest.zip
           unzip -q commandlinetools-linux-*.zip
           rm commandlinetools-linux-*.zip
-
-          # Fix dir structure → cmdline-tools/latest/
-          mv cmdline-tools cmdline-tools-latest
           mkdir -p cmdline-tools
-          mv cmdline-tools-latest cmdline-tools/latest
+          mv cmdline-tools cmdline-tools/latest
 
-      - name: ✅ Verify sdkmanager
-        run: |
-          if [ ! -f "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" ]; then
-            echo "❌ sdkmanager not found!"
-            exit 1
-          fi
-          echo "✅ sdkmanager OK"
-
-      - name: 📜 Accept Android SDK licenses
+      # Лицензии
+      - name: Accept Android licenses
         run: |
           mkdir -p "$ANDROID_HOME/licenses"
-          echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license"
-          echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_HOME/licenses/android-sdk-preview-license"
+          echo "8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license"
+          echo "84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_HOME/licenses/android-sdk-preview-license"
 
-      - name: 📲 Install Android packages
+      # Установка нужных компонентов
+      - name: Install Android platforms & tools
         run: |
-          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" \
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --sdk_root="$ANDROID_HOME" \
             "platforms;android-34" \
             "build-tools;34.0.0" \
-            "ndk;25.2.9519653"
+            "platform-tools" \
+            "ndk;26.1.10909125"
 
-      - name: 🔍 Verify aidl exists
-        run: |
-          AIDL_PATH="$ANDROID_HOME/build-tools/34.0.0/aidl"
-          if [ ! -f "$AIDL_PATH" ]; then
-            echo "❌ aidl NOT FOUND at $AIDL_PATH"
-            ls -la "$ANDROID_HOME/build-tools/"
-            exit 1
-          fi
-          echo "✅ aidl found at: $AIDL_PATH"
-
-      - name: 🏗️ Build APK (debug)
+      # Сборка debug APK
+      - name: Build with Buildozer (debug)
         run: |
           buildozer -v android debug
 
-      - name: 📤 Upload APK artifact
+      # Загрузка готового APK
+      - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: beta-debug-apk
+          name: Beta-debug-apk
           path: bin/*.apk
-          retention-days: 7
-
-      # 🗃️ Cache .buildozer (except SDK — already cached separately)
-      - name: 🗃️ Cache .buildozer (Python deps, NDK, etc.)
-        uses: actions/cache@v4
-        with:
-          path: ~/.buildozer
-          key: buildozer-python311-kivy230-${{ hashFiles('buildozer.spec') }}
-          restore-keys: |
-            buildozer-python311-kivy230-
+          retention-days: 14
