@@ -1,75 +1,36 @@
 [app]
 
-# (str) Title of your application
 title = Beta
-
-# (str) Package name
 package.name = beta
-
-# (str) Package domain (reverse DNS)
 package.domain = org.betaapp
 
-# (str) Application version
 version = 0.1.0
 
-# (list) Application requirements
-requirements = python3==3.11.9, kivy==2.3.0, sqlite3, certifi, android
+requirements = python3,kivy==2.3.0,sqlite3,certifi,android,pillow,pyjnius,openssl
 
-# (str) Source directory
 source.dir = .
+source.include_patterns = assets/**,gui/**,db_manager.py,main.py,main.kv
 
-# (list) Include patterns
-source.include_patterns = 
-    assets/**,
-    gui/**,
-    db_manager.py,
-    main.py,
-    main.kv
-
-# (list) Exclude unnecessary files
-source.exclude_patterns = 
-    .git/**,
-    .github/**,
-    README.md,
-    LICENSE,
-    *.yml,
-    *.spec,
-    *.log
-
-# (str) App icon — 512x512 PNG
 icon.filename = %(source.dir)s/assets/icon.png
 
-# (str) Orientation
 orientation = portrait
+fullscreen = 0
 
-# (list) Android permissions
-android.permissions = INTERNET, READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE
+android.permissions = INTERNET,READ_EXTERNAL_STORAGE,WRITE_EXTERNAL_STORAGE
 
-# (int) Target and min API
 android.api = 34
 android.minapi = 21
+android.sdk = 34
+android.ndk = 26b
+android.archs = armeabi-v7a, arm64-v8a
 
-# (bool) AndroidX support — REQUIRED
 android.enable_androidx = True
+android.accept_sdk_license = True
 
-# (str) Gradle version — compatible with API 34
-android.gradle_dependencies = com.android.tools.build:gradle:7.4.2
-
-# (str) Bootstrap — standard for Kivy
 p4a.bootstrap = sdl2
-
-# (str) Use develop branch for latest fixes
 p4a.branch = develop
-
-# (bool) Clean build (safe in CI)
-build.clean = True
-
 
 [buildozer]
 
-# (int) Log level
 log_level = 2
-
-# (str) Build dirs
-build_dir = .buildozer
-bin_dir = bin
+warn_on_root = 1
