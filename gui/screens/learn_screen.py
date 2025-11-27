@@ -2,13 +2,25 @@ from kivy.app import App
 from kivy.uix.screenmanager import Screen
 from random import shuffle
 
-from gui.utils.popup import LanguageSelectPopup
 
+from kivy.uix.popup import Popup
+
+
+class LanguageSelectPopup(Popup):
+    def __init__(self, callback, **kwargs):
+        super().__init__(**kwargs)
+        self.callback = callback
+
+    def set_language(self, lang_code):
+        print(f"Выбран режим: {lang_code}") 
+        self.callback(lang_code)
+        self.dismiss()
 
 class LearnScreen(Screen):
     def on_enter(self):
         app = App.get_running_app()
         word_row = app.db.get_word_for_learn()
+
         if not word_row:
             self.ids.word_label.text = 'Больше нет слов для изучения :('
             self.ids.transcription_label.text = ''
@@ -33,14 +45,14 @@ class LearnScreen(Screen):
             return
 
         
-        popup = LanguageSelectPopup(callback=self.start_learning)
+        popup = LanguageSelectPopup(callback=lambda lang_code: self.start_learning(lang_code, word_row))
         popup.open()
 
-    def start_learning(self, lang_code):
-        app = App.get_running_app()
+    def start_learning(self, lang_code, word_row):
         self.lang_code = lang_code
 
-        word_row = app.db.get_word_for_learn()
+        if not word_row:
+            print('word_row is empty')
 
         word_id, word_en, word_ru, distractor_ru1, distractor_ru2, distractor_en1, distractor_en2, sentence_ru, sentence_en, transcription = word_row
 
@@ -115,7 +127,13 @@ class LearnScreen(Screen):
         if self.ids.next_button.text == 'Main':
             self.go_to_main(None)
             return
-        self.start_learning(self.lang_code)
+        app = App.get_running_app()
+        word_row = app.db.get_word_for_learn()
+        if word_row:
+            self.start_learning(self.lang_code, word_row)  
+        else:
+            self.ids.word_label.text = 'Больше нет слов для изучения :('
+            self.ids.next_button.text = 'Main'
 
     def go_to_main(self, instance):
         from kivy.app import App

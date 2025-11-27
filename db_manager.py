@@ -2,8 +2,8 @@ import sqlite3
 from pathlib import Path
 
 
-#DB_PATH = Path('data/words.db')
-DB_PATH = Path('data/test.db')
+#DB_PATH = Path('data/o.db')
+DB_PATH = Path('words.db')
 SCHEMA_PATH = Path('data/schema.sql')
 
 class Database:

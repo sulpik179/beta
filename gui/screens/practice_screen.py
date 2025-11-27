@@ -9,8 +9,8 @@ from gui.utils.popup import LanguageSelectPopup
 class PracticeScreen(Screen):
     def on_enter(self):
         app = App.get_running_app()
-        word_row = app.db.get_word_for_practice()
-        if not word_row:
+        practice_row = app.db.get_word_for_practice()
+        if not practice_row:
             self.ids.word_label.text = 'Ещё нет слов для повторения :('
             self.ids.transcription_label.text = ''
             self.ids.sentence_label.text = 'Попробуйте режим Learn'
@@ -33,22 +33,18 @@ class PracticeScreen(Screen):
 
             return
 
-        popup = LanguageSelectPopup(callback=self.start_practice)
+        popup = LanguageSelectPopup(callback=lambda lang_code:self.start_practice(lang_code, practice_row))
         popup.open()
 
-    def start_practice(self, lang_code):
-        app = App.get_running_app()
+    def start_practice(self, lang_code, practice_row):
         self.lang_code = lang_code 
-
         word_id = None
-
-        practice_row = app.db.get_word_for_practice()
         if not practice_row:
             self.ids.word_label.text = 'Пока нет слов для изучения :(\n' \
             'Попробуйте режим Learn'
 
         word_id, k = practice_row
-
+        app = App.get_running_app()
         full_word_row = app.db.get_word_by_id(word_id)
         if not full_word_row:
             print('Ошибка, слово не найдено по id')
@@ -130,7 +126,13 @@ class PracticeScreen(Screen):
         if self.ids.next_button.text == 'Main':
             self.go_to_main(None)
             return
-        self.start_learning(self.lang_code)
+        app = App.get_running_app()
+        practice_row = app.db.get_word_for_practice()
+        if practice_row:
+            self.start_practice(self.lang_code, practice_row)
+        else:
+            self.ids.word_label.text = 'Ещё нет слов для повторения :('
+            self.ids.next_button.text = 'Main'
 
     def go_to_main(self, instance):
         from kivy.app import App
