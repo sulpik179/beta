@@ -23,6 +23,8 @@ android.permission.INTERNET = True
 android.presplash_color = #FFFFFF
 android.allow_backup = True
 
+android.accept_sdk_license = True
+
 # важно: включаем assets
 source.include_patterns = assets/**, data/**, gui/**, db_manager.py, main.py, main.kv
 
