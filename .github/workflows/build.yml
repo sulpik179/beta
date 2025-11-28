@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-22.04  # ✅ Старше
+    runs-on: ubuntu-22.04
 
     steps:
     - uses: actions/checkout@v4
@@ -18,8 +18,12 @@ jobs:
       run: |
         sudo apt update
         sudo apt install -y python3-pip python3-dev build-essential libffi-dev libssl-dev
-        sudo apt install -y libtool-bin autoconf automake pkg-config  # ✅ Добавь это
-        # ✅ Установил cython==0.29.33
+        sudo apt install -y libtool-bin autoconf automake pkg-config
+        # ✅ Установим Apache ANT вручную
+        wget https://archive.apache.org/dist/ant/binaries/apache-ant-1.9.4-bin.tar.gz
+        tar -xzf apache-ant-1.9.4-bin.tar.gz
+        sudo mv apache-ant-1.9.4 /opt/ant
+        sudo ln -sf /opt/ant/bin/ant /usr/local/bin/ant
         pip3 install buildozer cython==0.29.33
     - name: Build APK
       run: |
