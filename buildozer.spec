@@ -7,7 +7,7 @@ source.dir = .
 source.include_exts = py, kv, db, ttf, txt, sql, csv
 
 version = 1.0
-requirements = python3, kivy==2.1.0, sqlite3
+requirements = python3, kivy==2.1.0, pyjnius==1.4.2, sqlite3
 orientation = portrait
 
 fullscreen = 0
@@ -37,7 +37,7 @@ android.include_exts = ttf
 android.allow_host_sdcard = True
 
 # Python-for-Android параметры
-p4a.branch = master
+p4a.branch = stable
 
 android.ndk = 25b  
 
