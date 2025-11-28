@@ -39,7 +39,7 @@ android.allow_host_sdcard = True
 # Python-for-Android параметры
 p4a.branch = master
 
-android.ndk = 25b  # Обязательно 25b или выше
+android.ndk = 25b  
 
 android.api = 30
 
