@@ -7,7 +7,8 @@ source.dir = .
 source.include_exts = py, kv, db, ttf, txt, sql, csv
 
 version = 1.0
-requirements = python3, kivy==2.1.0, pyjnius==1.4.2, sqlite3
+# ✅ Добавил cython==0.29.33
+requirements = python3, kivy==2.1.0, pyjnius==1.4.2, cython==0.29.33, sqlite3
 orientation = portrait
 
 fullscreen = 0
@@ -37,14 +38,16 @@ android.include_exts = ttf
 android.allow_host_sdcard = True
 
 # Python-for-Android параметры
-p4a.branch = master
+# ✅ Изменил на develop
+p4a.branch = develop
 
-android.add_compile_options = --disable-remote-debugging
+# ✅ Удалил строку
+# android.add_compile_options = --disable-remote-debugging
 
-android.ndk = 25b  
+# ✅ Удалил строку
+# android.ndk = 25b
 
 android.api = 30
-
 android.minapi = 21
 
 

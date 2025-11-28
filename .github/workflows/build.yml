@@ -19,7 +19,8 @@ jobs:
         sudo apt update
         sudo apt install -y python3-pip python3-dev build-essential libffi-dev libssl-dev
         sudo apt install -y libtool-bin autoconf automake pkg-config  # ✅ Добавь это
-        pip3 install buildozer cython
+        # ✅ Установил cython==0.29.33
+        pip3 install buildozer cython==0.29.33
     - name: Build APK
       run: |
         buildozer android debug
