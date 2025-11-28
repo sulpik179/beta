@@ -1,0 +1,42 @@
+name: Build APK
+
+on:
+  push:
+    branches: [ apkbuild ]  # Собираем только при пуше в ветку apkbuild
+  pull_request:
+    branches: [ apkbuild ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4  # Загружаем код из репозитория
+
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: |
+        sudo apt update
+        sudo apt install -y python3-pip python3-dev build-essential libffi-dev libssl-dev
+        pip3 install --upgrade pip
+        pip3 install buildozer cython
+
+    - name: Setup Buildozer
+      run: |
+        python3 -c "import os; print('Buildozer version:', __import__('buildozer').__version__)"
+        # Проверим, что buildozer.spec есть
+        ls -la buildozer.spec
+
+    - name: Build APK
+      run: |
+        buildozer android debug
+
+    - name: Upload APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: beta-apk
+        path: bin/*.apk  # buildozer кладёт APK в bin/
