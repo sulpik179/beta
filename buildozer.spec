@@ -26,6 +26,8 @@ android.allow_backup = True
 # важно: включаем assets
 source.include_patterns = assets/**, data/**, gui/**, db_manager.py, main.py, main.kv
 
+android.build_tools = 33.0.0  # или 34.0.0
+
 # шрифты
 android.include_exts = ttf
 
