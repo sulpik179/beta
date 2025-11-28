@@ -22,6 +22,7 @@ jobs:
       run: |
         sudo apt update
         sudo apt install -y python3-pip python3-dev build-essential libffi-dev libssl-dev
+        sudo apt install -y libtool-bin autoconf automake pkg-config
         pip3 install --upgrade pip
         pip3 install buildozer cython
 

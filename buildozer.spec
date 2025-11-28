@@ -39,8 +39,12 @@ android.allow_host_sdcard = True
 # Python-for-Android параметры
 p4a.branch = master
 
-# чтобы кириллица не ломалась (опционально)
-# android.extra_args = --copy-libs
+android.ndk = 25b  # Обязательно 25b или выше
+
+android.api = 30
+
+android.minapi = 21
+
 
 [buildozer]
 log_level = 2
