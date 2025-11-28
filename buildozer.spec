@@ -7,7 +7,7 @@ source.dir = .
 source.include_exts = py, kv, db, ttf, txt, sql, csv
 
 version = 1.0
-requirements = python3, kivy==2.3.1, sqlite3
+requirements = python3, kivy==2.1.0, sqlite3
 orientation = portrait
 
 fullscreen = 0
