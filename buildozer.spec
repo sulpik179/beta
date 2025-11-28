@@ -37,7 +37,9 @@ android.include_exts = ttf
 android.allow_host_sdcard = True
 
 # Python-for-Android параметры
-p4a.branch = develop
+p4a.branch = master
+
+android.add_compile_options = --disable-remote-debugging
 
 android.ndk = 25b  
 
