@@ -19,13 +19,12 @@ android.permission.INTERNET = True
 # иконка (если нет — закомментируй)
 # icon.filename = assets/icon.png
 
-# копируем твою папку data целиком
+# копируем твою папку assets целиком
 android.presplash_color = #FFFFFF
 android.allow_backup = True
 
 # важно: включаем assets
-android.add_assets = data
-android.add_assets = assets
+source.include_patterns = assets/**, data/**, gui/**, db_manager.py, main.py, main.kv
 
 # шрифты
 android.include_exts = ttf
@@ -36,8 +35,8 @@ android.allow_host_sdcard = True
 # Python-for-Android параметры
 p4a.branch = master
 
-# чтобы кириллица не ломалась
-android.extra_args = --copy-libs
+# чтобы кириллица не ломалась (опционально)
+# android.extra_args = --copy-libs
 
 [buildozer]
 log_level = 2
