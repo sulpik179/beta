@@ -37,7 +37,6 @@ attention ; внимание ; равнодушие ; шум ; indifference ; no
 attitude ; отношение ; расстояние ; воздух ; distance ; air ; Его отношение изменилось. ; His attitude has changed. ; ˈætɪˌtjuːd
 audience ; аудитория ; выступление ; работа ; performance ; work ; Аудитория была впечатлена. ; The audience was impressed. ; ˈɔːdiəns
 avoid ; избегать ; искать ; делить ; seek ; divide ; Избегай опасных мест. ; Avoid dangerous places. ; əˈvɔɪd
-aware ; осведомленный ; забывчивый ; уставший ; forgetful ; tired ; Мы осведомлены о проблеме. ; We are aware of the problem. ; əˈwɛr
 background ; фон ; центр ; звук ; center ; sound ; На фоне был шум. ; There was noise in the background. ; ˈbækˌɡraʊnd
 balance ; баланс ; падение ; разрыв ; fall ; break ; Он сохраняет баланс. ; He keeps his balance. ; ˈbæləns
 barely ; едва ; полностью ; быстро ; fully ; quickly ; Он едва дышал. ; He could barely breathe. ; ˈbɛərli
@@ -64,7 +63,7 @@ careful ; осторожный ; смелый ; ленивый ; brave ; lazy ; 
 cause ; причина ; следствие ; случай ; effect ; event ; Причина аварии неизвестна. ; The cause of the accident is unknown. ; kɔːz
 challenge ; вызов ; отдых ; ошибка ; rest ; mistake ; Это был настоящий вызов. ; It was a real challenge. ; ˈtʃælɪndʒ
 charge ; обвинять ; спрашивать ; снимать ; ask ; remove ; Его обвинили в краже. ; He was charged with theft. ; tʃɑːrdʒ
-cheap ; дешевый ; дорогой ; редкий ; expensive ; rare ; Это очень дешёвая вещь. ; This is a very cheap item. ; tʃiːp
+
 cheer ; радовать ; злить ; расстраивать ; irritate ; upset ; Его слова меня порадовали. ; His words cheered me up. ; tʃɪr
 choice ; выбор ; правило ; ошибка ; rule ; error ; У нас нет другого выбора. ; We have no other choice. ; tʃɔɪs
 circumstance ; обстоятельство ; решение ; чувство ; decision ; feeling ; Обстоятельства изменились. ; Circumstances have changed. ; ˈsɜːrkəmstəns
@@ -221,7 +220,6 @@ flight ; полет ; падение ; остановка ; fall ; stop ; Пол
 float ; плавать ; падать ; стоять ; fall ; stand ; Бревно плавало на воде. ; The log floated on the water. ; floʊt
 flood ; наводнение ; песок ; огонь ; sand ; fire ; Наводнение разрушило город. ; The flood destroyed the town. ; flʌd
 flow ; течь ; стоять ; прыгать ; stand ; jump ; Река течет быстро. ; The river flows fast. ; floʊ
-focus ; сосредотачиваться ; отвлекаться ; путать ; distract ; confuse ; Мне нужно сосредоточиться. ; I need to focus. ; ˈfoʊkəs
 fold ; складывать ; ломать ; бросать ; break ; throw ; Он сложил бумагу. ; He folded the paper. ; foʊld
 follow ; следовать ; уводить ; закрывать ; lead away ; close ; Следуй за мной. ; Follow me. ; ˈfɑːloʊ
 force ; заставлять ; позволять ; радовать ; allow ; please ; Они заставили его работать. ; They forced him to work. ; fɔːrs
@@ -501,7 +499,7 @@ minor ; незначительный ; важный ; древний ; important
 minute ; минута ; час ; месяц ; hour ; month ; Я ждал одну минуту. ; I waited one minute. ; ˈmɪnɪt
 mirror ; зеркало ; дверь ; камень ; door ; stone ; Он смотрит в зеркало. ; He is looking in the mirror. ; ˈmɪrər
 misery ; страдание ; радость ; успех ; joy ; success ; Его жизнь была полной страданий. ; His life was full of misery. ; ˈmɪzəri
-miss ; скучать ; находить ; покупать ; find ; buy ; Я скучаю по тебе. ; I miss you. ; mɪs
+
 mistake ; ошибка ; правда ; сила ; truth ; strength ; Я сделал ошибку. ; I made a mistake. ; mɪˈsteɪk
 mix ; смешивать ; разделять ; выбрасывать ; separate ; throw ; Смешай ингредиенты. ; Mix the ingredients. ; mɪks
 mixture ; смесь ; линия ; остров ; line ; island ; Эта смесь безопасна. ; This mixture is safe. ; ˈmɪkstʃər
@@ -1196,7 +1194,7 @@ store ; магазин ; самолёт ; дерево ; airplane ; tree ; Я п
 storm ; буря ; солнце ; туман ; sun ; fog ; Буря началась. ; The storm started. ; stɔːrm
 story ; история ; слово ; звук ; word ; sound ; Это длинная история. ; It’s a long story. ; ˈstɔːri
 stove ; плита ; окно ; сумка ; window ; bag ; Я готовлю на плите. ; I cook on the stove. ; stoʊv
-straight ; прямо ; назад ; вокруг ; back ; around ; Иди прямо. ; Go straight. ; streɪt
+
 strange ; странный ; обычный ; простой ; normal ; simple ; Это странное чувство. ; This is a strange feeling. ; streɪndʒ
 strategy ; стратегия ; случай ; ошибка ; accident ; mistake ; У нас есть стратегия. ; We have a strategy. ; ˈstrætədʒi
 stream ; поток ; камень ; лес ; stone ; forest ; Поток был быстрым. ; The stream was fast. ; striːm
@@ -1831,7 +1829,7 @@ brag ; хвастаться ; молчать ; извиняться ; be silent 
 brand ; бренд ; ошибка ; грязь ; mistake ; dirt ; Это известный бренд. ; This is a famous brand. ; brænd
 bravery ; храбрость ; трусость ; сомнение ; cowardice ; doubt ; Он проявил храбрость. ; He showed bravery. ; ˈbreɪvəri
 breach ; нарушение ; соблюдение ; помощь ; compliance ; help ; Это серьёзное нарушение. ; This is a serious breach. ; briːtʃ
-breadth ; ширина ; высота ; громкость ; height ; volume ; Ширина моста впечатляет. ; The breadth of the bridge is impressive. ; brɛdθ
+width ; ширина ; высота ; громкость ; height ; volume ; Ширина моста впечатляет. ; The width of the bridge is impressive. ; brɛdθ
 breakable ; ломкий ; крепкий ; тяжёлый ; strong ; heavy ; Стекло очень ломкое. ; The glass is very breakable. ; ˈbreɪkəbəl
 breakdown ; поломка ; починка ; порядок ; repair ; order ; Произошла поломка машины. ; The car had a breakdown. ; ˈbreɪkdaʊn
 breakthrough ; прорыв ; потеря ; остановка ; loss ; stop ; Это научный прорыв. ; This is a scientific breakthrough. ; ˈbreɪkˌθruː
@@ -3537,7 +3535,6 @@ keep in mind;иметь в виду;забывать;игнорировать;fo
 keep someone posted;держать в курсе;скрывать;игнорировать;hide;ignore;Держи меня в курсе.;Keep me posted.;kiːp ˈpoʊstɪd
 last but not least;последний, но не менее важный;первый и главный;неважный;first and main;unimportant;И последнее, но не менее важное…;Last but not least…;læst bʌt nɒt liːst
 learn the ropes;осваивать основы;забывать;путать;forget;mix up;Он пока осваивает основы.;He is learning the ropes.;lɜːrn ðə roʊps
-firmly ; твердо ; мягко ; неуверенно ; softly ; uncertainly ; Он твердо стоял на своем мнении. ; He stood firmly by his opinion. ;ˈfɜːmli
 academic ; учебный/академический ; бытовой ; практический ; domestic ; practical ; У него сильный академический интерес к истории. ; He has a strong academic interest in history. ;ˌækəˈdemɪk
 academic qualification ; академическая квалификация ; диплом ; стажировка ; diploma ; internship ; Для этой должности требуется академическая квалификация. ; The position requires an academic qualification. ;ˌækəˈdemɪk ˌkwɒlɪfɪˈkeɪʃən
 ace ; туз/отличник ; неудачник ; посредственность ; loser ; mediocre ; Он настоящий туз в математике. ; He is an ace at math. ;eɪs
@@ -3633,7 +3630,6 @@ perks ; привилегии ; обязанности ; наказания ; dut
 personnel ; персонал ; техника ; публика ; equipment ; public ; Персонал прошёл обучение. ; The personnel received training. ;ˌpɜːsəˈnel
 persuasive ; убедительный ; слабый ; сомнительный ; weak ; doubtful ; Его речь была убедительной. ; His speech was persuasive. ;pəˈsweɪsɪv
 pill ; таблетка ; ложка ; шприц ; spoon ; syringe ; Он выпил таблетку. ; He took a pill. ;pɪl
-medicine ; лекарство ; еда ; напиток ; food ; drink ; Это эффективное лекарство. ; This is an effective medicine. ;ˈmedsɪn
 pillow ; подушка ; стул ; кровать ; chair ; bed ; Мне нужна новая подушка. ; I need a new pillow. ;ˈpɪləʊ
 pillar ; колонна ; доска ; сетка ; board ; net ; Здание поддерживается колоннами. ; The building is supported by pillars. ;ˈpɪlə
 plumber ; сантехник ; учитель ; водитель ; teacher ; driver ; Нам нужен сантехник, чтобы починить трубу. ; We need a plumber to fix the pipe. ;ˈplʌmə
@@ -3659,7 +3655,6 @@ run ; бежать/управлять ; стоять ; падать ; stand ; fa
 run errands ; выполнять поручения ; отдыхать ; играть ; rest ; play ; Она вышла выполнять поручения. ; She went out to run errands. ;rʌn ˈerəndz
 sack ; мешок/увольнять ; стол ; книга ; table ; book ; Его уволили вчера. ; He was sacked yesterday. ;sæk
 to dismiss ; уволить ; нанять ; повысить ; hire ; promote ; Его уволили из-за ошибок. ; He was dismissed due to mistakes. ;dɪsˈmɪs
-to fire ; уволить (жарг.) ; нанять ; похвалить ; hire ; praise ; Его уволили с работы. ; They fired him from the job. ;ˈfaɪə
 savvy ; разбирающийся ; забывчивый ; медленный ; forgetful ; slow ; Он технично разбирающийся человек. ; He is a tech-savvy person. ;ˈsævi
 secondary ; средний/вторичный ; главный ; ключевой ; main ; key ; Она работает в средней школе. ; She works at a secondary school. ;ˈsekəndəri
 seal ; тюлень/печать ; рыба ; змея ; fish ; snake ; Мы увидели тюленя на пляже. ; We saw a seal on the beach. ;siːl
@@ -3695,7 +3690,6 @@ to offset ; компенсировать ; увеличивать ; портит
 to persuade ; убеждать ; отказываться ; молчать ; refuse ; silence ; Он пытался убедить её остаться. ; He tried to persuade her to stay. ;pəˈsweɪd
 to purify ; очищать ; загрязнять ; разрушать ; pollute ; destroy ; Вода очищается фильтром. ; The water is purified by a filter. ;ˈpjʊərɪfaɪ
 to sack ; уволить ; нанять ; повысить ; hire ; promote ; Его уволили с работы. ; They sacked him from the job. ;sæk
-to dismiss ; уволить ; нанять ; похвалить ; hire ; praise ; Его уволили из-за нарушения правил. ; He was dismissed for breaking the rules. ;dɪsˈmɪs
 to fire ; уволить ; повысить ; принять ; promote ; accept ; Его уволили мгновенно. ; They fired him immediately. ;ˈfaɪə
 trays ; подносы ; чашки ; ложки ; cups ; spoons ; Она поставила подносы на стол. ; She put the trays on the table. ;treɪz
 troubled ; обеспокоенный ; спокойный ; уверенный ; calm ; confident ; Он выглядел обеспокоенным. ; He looked troubled. ;ˈtrʌb(ə)ld
@@ -3708,53 +3702,295 @@ wet ; мокрый ; сухой ; тёплый ; dry ; warm ; Он пришёл 
 wholesale ; оптовый ; розничный ; единичный ; retail ; single ; Они продают товары оптом. ; They sell goods wholesale. ;ˈhəʊlseɪl
 whole ; целый ; пустой ; частичный ; empty ; partial ; Он съел целый торт. ; He ate the whole cake. ;həʊl
 zero-emission ; с нулевыми выбросами ; загрязняющий ; опасный ; polluting ; dangerous ; Это автомобиль с нулевыми выбросами. ; It is a zero-emission vehicle. ;ˌzɪərəʊ ɪˈmɪʃən
-nevertheless;тем не менее;наоборот;затем;instead;then;Он устал, тем не менее продолжил.;He was tired, nevertheless he continued.;ˌnevərðəˈles
 miss;пропустить;поймать;заметить;catch;notice;Я пропустил начало фильма.;I missed the beginning of the movie.;mɪs
-ignore;игнорировать;слушать;прислушиваться;listen;heed;Не игнорируй советы старших.;Don’t ignore advice from elders.;ɪɡˈnɔːr
 void;пустота;полнота;присутствие;fullness;presence;В глазах у него была пустота.;There was a void in his eyes.;vɔɪd
-chaos;хаос;тишина;спокойствие;calm;tranquility;После детей в комнате был хаос.;After the kids, the room was chaos.;ˈkeɪɒs
 downhill;спуск;подъём;восхождение;ascent;climb;Спуск на велосипеде был весёлым.;The downhill ride was fun.;ˌdaʊnˈhɪl
 downward;направленный вниз;восходящий;поднимающийся;upward;rising;Птица сделала резкое движение вниз.;The bird made a sharp downward move.;ˈdaʊnwərd
 matters;иметь значение;не иметь значения;быть неважным;doesn’t matter;is irrelevant;Детали здесь имеют значение.;Details matter here.;ˈmætərz
 significant;значимый;тривиальный;незаметный;trivial;negligible;Это был значимый момент в его жизни.;It was a significant moment in his life.;sɪɡˈnɪfɪkənt
 I’m glad I had;рад, что имел/испытал;жалею, что не имел;сожалею об упущенном;I regret not having;I wish I’d had;Я рад, что провёл детство в деревне.;I’m glad I had my childhood in the countryside.;aɪm ɡlæd aɪ hæd
 I’m happy I got;доволен, что получил;разочарован;недоволен;disappointed;dissatisfied;Я доволен, что получил эту возможность.;I’m happy I got this chance.;aɪm ˈhæpi aɪ ɡɒt
-conceal;скрывать;раскрывать;обнаруживать;reveal;disclose;Он пытался скрыть слёзы.;He tried to conceal his tears.;kənˈsiːl
-hide;прятать;показывать;выставлять напоказ;show;display;Она спрятала подарок в шкафу.;She hid the gift in the closet.;haɪd
 secondary;вторичный;ведущий;доминирующий;leading;dominant;Его роль была вторичной в пьесе.;His role was secondary in the play.;ˈsekəndri
 minor;мелкий;главный;серьёзный;major;serious;Это была лишь мелкая неприятность.;It was just a minor annoyance.;ˈmaɪnər
-resist;сопротивляться;поддаваться;уступать;give in;yield;Трудно сопротивляться соблазну печенья.;It’s hard to resist the cookie temptation.;rɪˈzɪst
 fight;драться;мириться;примиряться;make peace;reconcile;Они дрались из-за игрушки.;They fought over a toy.;faɪt
 remove;убирать;оставлять;сохранять;leave;keep;Убери книгу с пола, пожалуйста.;Remove the book from the floor, please.;rɪˈmuːv
 take out;выносить;вносить;приносить внутрь;bring in;bring inside;Вынеси мусорное ведро.;Take out the bin.;teɪk aʊt
-cancel;отменять;назначать;подтверждать;schedule;confirm;Они отменили свадьбу в последний момент.;They canceled the wedding last minute.;ˈkænsəl
 abort;прекращать (на ранней стадии);доводить до конца;завершать;complete;finish;Они прервали поездку из-за болезни.;They aborted the trip due to illness.;əˈbɔːrt
 advertisement;реклама;рецензия;отзыв;review;testimonial;Он прочитал рекламу нового кафе.;He read an advertisement for a new café.;ədˈvɜːtɪsmənt
 announcement;сообщение;тайна;умалчивание;secret;silence;По телевизору дали объявление о шторме.;An announcement about the storm aired on TV.;əˈnaʊnsmənt
 doesn't matter;неважно;важно;существенно;matters;significant;Мне неважно, во сколько начнём.;It doesn’t matter what time we start.;ˌdʌzntˈmætər
 i wish i had;жаль что не было;рад что было;доволен что получил;I’m glad I had;I’m happy I got;Жаль что не было зонта — промокли.;I wish I had an umbrella—we got soaked.;aɪ wɪʃ aɪ hæd
-mention;упоминать;умалчивать;скрывать;conceal;hide;Он не упомянул о своём отъезде.;He didn’t mention his departure.;ˈmenʃn
-primary;основной;второстепенный;незначительный;secondary;minor;Её основная задача — забота о детях.;Her primary duty is caring for the children.;ˈpraɪməri
 surrender;сдаваться;сопротивляться;бороться;resist;fight;Он не хотел сдаваться, несмотря ни на что.;He refused to surrender no matter what.;səˈrendər
 insert;вставлять;удалять;вынимать;remove;take out;Вставь ключ в замок и поверни.;Insert the key into the lock and turn it.;ɪnˈsɜːrt
-execute;выполнять;отменять;прерывать;cancel;abort;Суд приговорил его к смертной казни — приговор был приведён в исполнение.;The sentence was carried out.;ˈeksɪkjuːt
 article;статья;реклама;объявление;advertisement;announcement;Я прочитал интересную статью в журнале.;I read an interesting article in the magazine.;ˈɑːrtɪkl
 dynamic;энергичный;вялый;апатичный;lethargic;apathetic;Она динамичная и всегда полна идей.;She’s dynamic and always full of ideas.;daɪˈnæmɪk
 static;неподвижный;изменчивый;подвижный;changing;mobile;Облака висели статично в небе.;The clouds hung static in the sky.;ˈstætɪk
 stressed out;перенапряжённый;спокойный;расслабленный;calm;relaxed;После экзаменов я был полностью вымотан.;I was totally stressed out after the exams.;strest aʊt
 idle;бездельничать;работать;трудиться;work;labor;Он целый день бездельничал на диване.;He idled on the couch all day.;ˈaɪdl
-sure;уверенный;сомневающийся;неуверенный;doubtful;uncertain;Я уверен, что мы уже встречались.;I’m sure we’ve met before.;ʃʊr
 pay rise;повышение зарплаты;снижение зарплаты;уменьшение оклада;pay cut;wage reduction;Ей дали повышение после года работы.;She got a pay rise after a year.;peɪ raɪz
-unable;не способный;способный;в состоянии;able;capable;Он не смог открыть дверь — ключ сломался.;He was unable to open the door—the key broke.;ʌnˈeɪbl
 puppet;марионетка;кукла-тильда;игрушка;soft toy;doll;Ребёнок играл с деревянной марионеткой.;The child played with a wooden puppet.;ˈpʌpɪt
 string;верёвка;стержень;проволока;rod;wire;Он привязал пакет верёвкой.;He tied the bag with a string.;strɪŋ
 string;ряд, цепочка;хаос;единица;chaos;unit;Она назвала целую цепочку имён.;She listed a whole string of names.;strɪŋ
-string;струна;барабан;клавиша;drum;key;Гитара имеет шесть струн.;The guitar has six strings.;strɪŋ
 fetch;принести (по команде);унести;забрать;take away;bring back;Собака принесла палку по команде.;The dog fetched the stick on command.;fetʃ
 rinse;ополоснуть;загрязнить;испачкать;soil;dirty;Ополосни рис перед варкой.;Rinse the rice before cooking.;rɪns
-insufficient;недостаточный;достаточный;избыточный;sufficient;excessive;Света было недостаточно для чтения.;The light was insufficient for reading.;ˌɪnsəˈfɪʃnt
-exist;существовать;исчезать;отсутствовать;disappear;be absent;Жизнь на других планетах может существовать.;Life on other planets may exist.;ɪɡˈzɪst
-already;уже;ещё нет;никогда;not yet;never;Он уже ушёл домой.;He’s already gone home.;ɔːlˈredi
 yet;ещё (в отриц. и вопросит.);уже;давно;already;long ago;Ты уже закончил?— Нет, ещё нет.;Have you finished yet?— No, not yet.;jet
 pristine;нетронутый;загрязнённый;испорченный;polluted;spoiled;Пляж был абсолютно нетронутым.;The beach was completely pristine.;ˈprɪstiːn
 definitely;определённо;возможно;неизвестно;possibly;uncertainly;Я точно пойду на вечеринку.;I’ll definitely go to the party.;ˈdefɪnətli
+dip;макать, окунать;поджечь;сломать;ignite;break;Он начал макать печенье в чай.;He started to dip his cookie into the tea.;dɪp
+to close;закрыть;открыть;разблокировать;open;unlock;Не забудь закрыть дверь.;Don’t forget to close the door.;kloʊz
+close (adv.);близко;далеко;мимо;far;past;Он стоял слишком близко.;He stood too close.;kloʊs
+close (adj.);ближний, тесный;широкий;отдалённый;wide;distant;У них очень тесные отношения.;They have a very close relationship.;kloʊs
+reckless;безрассудный;осторожный;разумный;careful;reasonable;Это было безрассудное решение.;It was a reckless decision.;ˈrɛkləs
+case;случай;правило;ошибка;rule;mistake;В этом случае лучше подождать.;In this case, it’s better to wait.;keɪs
+delicious;вкусный;невкусный;горький;tasteless;bitter;Торт был невероятно вкусным.;The cake was incredibly delicious.;dɪˈlɪʃəs
+marks;оценки;ошибки;линии;mistakes;lines;У него всегда высокие оценки.;He always gets high marks.;mɑːrks
+fluently;бегло;медленно;плохо;slowly;badly;Она говорит по-английски бегло.;She speaks English fluently.;ˈfluːəntli
+early;рано;поздно;никогда;late;never;Я пришёл слишком рано.;I arrived too early.;ˈɜːrli
+sticky;липкий;скользкий;лёгкий;slippery;light;Мёд очень липкий.;Honey is very sticky.;ˈstɪki
+viscous;вязкий;жидкий;сухой;liquid;dry;Сироп был густым и вязким.;The syrup was thick and viscous.;ˈvɪskəs
+fuck up;испортить;улучшить;помочь;improve;help;Не облажайся снова.;Don’t fuck up again.;fʌk ʌp
+obsessed;одержимый;спокойный;равнодушный;calm;indifferent;Он одержим этой идеей.;He is obsessed with this idea.;əbˈsɛst
+bump;натыкаться;избегать;прятаться;avoid;hide;Я снова наткнулся на него.;I bumped into him again.;bʌmp
+violate;нарушать;выполнять;защищать;perform;protect;Он нарушил правила.;He violated the rules.;ˈvaɪəleɪt
+razor;бритва;нож;игла;knife;needle;Мне нужна новая бритва.;I need a new razor.;ˈreɪzər
+prophecy;пророчество;ложь;команда;lie;command;Пророчество сбылось.;The prophecy came true.;ˈprɒfəsi
+resurrect;воскрешать;убивать;забывать;kill;forget;Они пытались воскресить традицию.;They tried to resurrect the tradition.;ˌrɛzəˈrɛkt
+plum;слива;яблоко;персик;apple;peach;Я купил свежие сливы.;I bought fresh plums.;plʌm
+sleeve;рукав;воротник;кнопка;collar;button;На его рукаве было пятно.;There was a stain on his sleeve.;sliːv
+time is up;время вышло;время есть;мы успеваем;there’s time;we’re in time;Время вышло, сдавайте работу.;Time is up, hand in your work.;taɪm ɪz ʌp
+cutthroat;жестокий;добрый;спокойный;kind;calm;Это был жестокий бизнес.;It was a cutthroat business.;ˈkʌtˌθroʊt
+alive;живой;мёртвый;спящий;dead;asleep;Он был живой после аварии.;He was alive after the accident.;əˈlaɪv
+dripping;капающий;сухой;тёплый;dry;warm;Одежда была вся мокрой и капала.;The clothes were dripping wet.;ˈdrɪpɪŋ
+bend;гнуть;ломать;резать;break;cut;Он попытался согнуть металл.;He tried to bend the metal.;bɛnd
+favour;услуга;вред;ошибка;harm;mistake;Сделай мне одолжение.;Do me a favour.;ˈfeɪvər
+sorrow;печаль;радость;смех;joy;laughter;Его сердце было полно печали.;His heart was full of sorrow.;ˈsɒroʊ
+immature;незрелый;взрослый;умный;adult;smart;Он слишком незрелый для этого.;He is too immature for this.;ˌɪməˈtjʊər
+soothe;успокаивать;злить;мешать;anger;disturb;Музыка помогла его успокоить.;The music helped soothe him.;suːð
+meantime;тем временем;поздно;сразу;late;immediately;Ты готовься, а я тем временем подожду.;You get ready, and I’ll wait in the meantime.;ˈmiːnˌtaɪm
+wounds;раны;шутки;слова;jokes;words;Его раны уже заживают.;His wounds are healing.;wuːndz
+be quiet;замолчи;говори;пой;talk;sing;Пожалуйста, замолчи.;Please be quiet.;biː kwaɪət
+rubble;обломки;вода;мусор;water;trash;Здание превратилось в обломки.;The building turned into rubble.;ˈrʌbəl
+centered;сосредоточенный;рассеянный;сумасшедший;distracted;crazy;Он оставался сосредоточенным.;He remained centered.;ˈsɛntərd
+trapped;в ловушке;свободный;потерянный;free;lost;Он оказался в ловушке.;He was trapped.;træpt
+oscillate;колебаться;стоять;застывать;stand;freeze;Стрелка начала колебаться.;The needle started to oscillate.;ˈɒsɪleɪt
+bound;связанный;свободный;лёгкий;free;light;Он был связан по рукам и ногам.;He was bound hand and foot.;baʊnd
+thwart;препятствовать;помогать;создавать;help;create;Он сорвал наши планы.;He thwarted our plans.;θwɔːrt
+summary;краткое содержание;подробность;доказательство;detail;evidence;Он написал краткое содержание текста.;He wrote a summary of the text.;ˈsʌməri
+break the ice;растопить лед;заморозить ситуацию;усугубить молчание;freeze the moment;make it worse;Он рассказал шутку, чтобы растопить лед.;He told a joke to break the ice.;breɪk ði aɪs
+a piece of cake;очень легко;очень сложно;тяжело выполнить;hard nut;big trouble;Экзамен был простой.;The exam was a piece of cake.;ə piːs əv keɪk
+in hot water;в беде;в выигрыше;в радости;in profit;in joy;Он оказался в беде после ошибки.;He found himself in hot water after the mistake.;ɪn hɒt wɔːtə
+cost an arm and a leg;очень дорого;бесплатно;дешево;free of charge;very cheap;Новый телефон стоит очень дорого.;The new phone costs an arm and a leg.;kɒst ən ɑːm ənd ə lɛg
+spill the beans;выболтать секрет;держать секрет;не слышать;keep silence;ignore;Он выболтал секрет.;He spilled the beans.;spɪl ðə biːnz
+once in a blue moon;крайне редко;часто;иногда;very often;from time to time;Он навещает нас крайне редко.;He visits us once in a blue moon.;wʌns ɪn ə bluː muːn
+let the cat out of the bag;проболтаться;скрыть правду;перепутать;hide the truth;mix up;Он проболтался о сюрпризе.;He let the cat out of the bag.;lɛt ðə kæt aʊt əv ðə bæg
+hit the books;усиленно учиться;бездельничать;прогуливать;skip class;do nothing;Мне нужно усиленно учиться.;I need to hit the books.;hɪt ðə bʊks
+the ball is in your court;теперь твоя очередь;моя очередь;никто не решает;my turn;no one's turn;Теперь твоя очередь решать.;The ball is in your court now.;ðə bɔːl ɪz ɪn jɔː kɔːt
+on thin ice;на тонком льду;в безопасности;в зоне комфорта;safe zone;comfort zone;Он играет на тонком льду.;He is on thin ice.;ɒn θɪn aɪs
+get out of hand;выйти из-под контроля;контролироваться;быть стабильным;stay stable;be under control;Ситуация вышла из-под контроля.;The situation got out of hand.;gɛt aʊt əv hænd
+think outside the box;думать нестандартно;думать шаблонно;думать медленно;think slowly;think normally;Мы должны думать нестандартно.;We must think outside the box.;θɪŋk aʊtsaɪd ðə bɒks
+wrap your head around;понять;забыть;игнорировать;forget;ignore;Мне сложно это понять.;It’s hard to wrap my head around it.;ræp jɔː hɛd əˈraʊnd
+bite the bullet;смириться;возражать;бояться;object;be afraid;Мне пришлось смириться.;I had to bite the bullet.;baɪt ðə bʊlɪt
+call it a day;заканчивать;продолжать;начинать;keep going;start fresh;Давай закончим на сегодня.;Let’s call it a day.;kɔːl ɪt ə deɪ
+cut to the chase;перейти к делу;говорить долго;отвлекаться;talk long;get distracted;Давай перейдем к делу.;Let’s cut to the chase.;kʌt tə ðə ʧeɪs
+go the extra mile;делать больше;делать меньше;не помогать;do less;avoid help;Он всегда делает больше.;He always goes the extra mile.;gəʊ ði ɛkstrə maɪl
+hit the road;отправиться;остаться;прибыть;stay;arrive;Мы должны отправиться сейчас.;We need to hit the road now.;hɪt ðə rəʊd
+keep an eye on;присматривать;игнорировать;потерять;ignore;lose;Присмотри за сумкой.;Keep an eye on the bag.;kiːp ən aɪ ɒn
+leave no stone unturned;исследовать всё;ничего не делать;отказаться искать;do nothing;stop searching;Мы исследовали всё.;We left no stone unturned.;liːv nəʊ stoʊn ʌnˈtɜːnd
+miss the boat;упустить шанс;успеть;выиграть;be on time;win;Он упустил шанс.;He missed the boat.;mɪs ðə bəʊt
+on the same page;быть на одной волне;не понимать друг друга;спорить;argue;disagree;Мы на одной волне.;We are on the same page.;ɒn ðə seɪm peɪʤ
+pull the plug;остановить;начать;ускорить;start;speed up;Они решили остановить проект.;They decided to pull the plug on the project.;pʊl ðə plʌg
+see eye to eye;полностью соглашаться;спорить;сомневаться;argue;doubt;Мы полностью согласны.;We see eye to eye.;siː aɪ tə aɪ
+sit tight;ждать;двигаться;торопиться;move;hurry;Просто жди.;Just sit tight.;sɪt taɪt
+speak of the devil;легок на помине;далеко отсюда;никто не появляется;far away;no one;Легок на помине!;Speak of the devil!;spiːk əv ðə dɛvəl
+steal someone's thunder;присвоить чужую заслугу;похвалить;помочь;praise;help;Он присвоил мою заслугу.;He stole my thunder.;stiːl sʌmwʌnz θʌndə
+take with a grain of salt;воспринимать скептически;верить полностью;быть уверенным;believe fully;be certain;Воспринимай это скептически.;Take it with a grain of salt.;teɪk wɪð ə greɪn əv sɔːlt
+the best of both worlds;лучшее из двух миров;худшее;ничего хорошего;the worst;nothing good;Это лучшее из двух миров.;It’s the best of both worlds.;ðə bɛst əv bəʊθ wɜːldz
+through thick and thin;в горе и радости;иногда;редко;sometimes;rarely;Они вместе в горе и радости.;They are together through thick and thin.;θruː θɪk ənd θɪn
+time flies;время летит;время тянется;время остановилось;time drags;time stops;Время летит быстро.;Time flies fast.;taɪm flaɪz
+turn a blind eye;закрывать глаза;замечать;обращать внимание;notice;pay attention;Они закрывают глаза на проблему.;They turn a blind eye to the problem.;tɜːn ə blaɪnd aɪ
+walk on eggshells;быть осторожным;быть грубым;делать рискованно;be rude;act risky;Он ходит на цыпочках вокруг босса.;He walks on eggshells around his boss.;wɔːk ɒn ɛgʃɛlz
+burn bridges;сжигать мосты;поддерживать связь;улучшать отношения;keep contact;improve relations;Не сжигай мосты.;Don’t burn bridges.;bɜːn brɪʤɪz
+hit the jackpot;сорвать куш;проиграть;не получить;lose;miss;Он сорвал куш.;He hit the jackpot.;hɪt ðə ʤækpɒt
+go down in flames;потерпеть крах;успех;выиграть;success;win;Проект потерпел крах.;The project went down in flames.;gəʊ daʊn ɪn fleɪmz
+break the bank;обойтись слишком дорого;быть бесплатным;быть дешевым;be free;be cheap;Это обойдётся слишком дорого.;It will break the bank.;breɪk ðə bæŋk
+fish out of water;не в своей тарелке;комфортно;на месте;comfortable;in place;Он чувствовал себя не в своей тарелке.;He felt like a fish out of water.;fɪʃ aʊt əv wɔːtə
+cost peanuts;стоить очень дешево;стоить дорого;быть редким;expensive;rare;Это стоит очень дешево.;It costs peanuts.;kɒst piːnʌts
+cry over spilt milk;жалеть о неизменном;радоваться;побеждать;be happy;win;Не жалей о случившемся.;Don’t cry over spilt milk.;kraɪ əʊvə spɪlt mɪlk
+hit the ceiling;взбеситься;успокоиться;заснуть;calm down;fall asleep;Он взбесился, услышав новость.;He hit the ceiling when he heard the news.;hɪt ðə siːlɪŋ
+jump the gun;опередить события;ждать;медлить;wait;delay;Не опережай события.;Don’t jump the gun.;ʤʌmp ðə gʌn
+let sleeping dogs lie;не ворошить прошлое;вскрывать старое;напоминать;bring up;remind;Лучше не ворошить прошлое.;Let sleeping dogs lie.;lɛt sliːpɪŋ dɒgz laɪ
+lose your touch;потерять хватку;улучшиться;сильно развиться;improve;grow fast;Он потерял хватку.;He lost his touch.;luːz jɔː tʌʧ
+make ends meet;сводить концы с концами;тратить много;жить богато;spend a lot;live rich;Им сложно сводить концы с концами.;They struggle to make ends meet.;meɪk ɛndz miːt
+the last straw;последняя капля;первый шанс;подарок;first chance;gift;Это была последняя капля.;That was the last straw.;ðə lɑːst strɔː
+beat around the bush;ходить вокруг да около;говорить прямо;молчать;be direct;say nothing;Не ходи вокруг да около.;Don’t beat around the bush.;biːt əraʊnd ðə bʊʃ
+bend over backwards;очень стараться;ничего не делать;мешать;do nothing;disturb;Я очень старался помочь.;I bent over backwards to help.;bɛnd oʊvə bækwərdz
+bite off more than you can chew;взять слишком много;взять мало;отказаться;take little;refuse;Он взял слишком много на себя.;He bit off more than he could chew.;baɪt ɒf mɔː ðæn ju kæn ʧuː
+by the book;по правилам;не по правилам;втайне;against rules;secretly;Он делает всё по правилам.;He does everything by the book.;baɪ ðə bʊk
+cut corners;делать кое-как;делать идеально;делать тщательно;do perfectly;be thorough;Они делают работу кое-как.;They cut corners.;kʌt kɔːnərz
+easier said than done;легче сказать, чем сделать;легко сделать;невозможно сделать;easy to do;impossible;Это легче сказать, чем сделать.;It’s easier said than done.;iːzɪər sɛd ðæn dʌn
+face the music;принять последствия;убежать;избежать;run away;avoid;Он должен принять последствия.;He must face the music.;feɪs ðə mjuːzɪk
+feel under the weather;чувствовать себя плохо;чувствовать себя отлично;быть счастливым;feel great;be happy;Я чувствую себя плохо.;I feel under the weather.;fiːl ʌndə ðə wɛðə
+find your feet;адаптироваться;запутаться;потеряться;get confused;get lost;Мне нужно время, чтобы адаптироваться.;I need time to find my feet.;faɪnd jɔː fiːt
+fly off the handle;вспылить;успокоиться;улыбаться;calm down;smile;Он вспылил на совещании.;He flew off the handle at the meeting.;flaɪ ɒf ðə hændl
+get the hang of it;освоиться;перестать понимать;запутаться;stop understanding;get confused;Ты скоро освоишься.;You’ll get the hang of it.;gɛt ðə hæŋ əv ɪt
+give someone the benefit of the doubt;поверить на слово;подозревать;обвинять;suspect;accuse;Я поверил ему на слово.;I gave him the benefit of the doubt.;gɪv sʌmwʌn ðə bɛnɪfɪt əv ðə daʊt
+have a blast;круто провести время;скучать;страдать;be bored;suffer;Мы круто провели время.;We had a blast.;hæv ə blæst
+in the blink of an eye;в мгновение;очень долго;никогда;very long;never;Это произошло в мгновение ока.;It happened in the blink of an eye.;ɪn ðə blɪŋk əv ən aɪ
+jump on the bandwagon;следовать моде;идти против тренда;не замечать тренды;go against trend;ignore trends;Он последовал моде.;He jumped on the bandwagon.;ʤʌmp ɒn ðə bændwægən
+keep your chin up;не вешать нос;сдаваться;плакать;give up;cry;Не вешай нос.;Keep your chin up.;kiːp jɔː ʧɪn ʌp
+know the ropes;знать все тонкости;ничего не знать;забывать всё;know nothing;forget all;Она знает все тонкости работы.;She knows the ropes.;noʊ ðə roʊps
+leave someone hanging;оставить без ответа;помочь;быстро реагировать;help;react fast;Они оставили меня без ответа.;They left me hanging.;liːv sʌmwʌn hæŋɪŋ
+let your hair down;расслабиться;напрягаться;бояться;stress;fear;Просто расслабься.;Just let your hair down.;lɛt jɔː hɛː daʊn
+make a long story short;если коротко;если подробно;если непонятно;in detail;unclearly;Если коротко, всё прошло хорошо.;Long story short, everything went well.;meɪk ə lɒŋ stɔːri ʃɔːt
+miss the point;упустить суть;понять точно;переврать;understand fully;distort;Ты упускаешь суть.;You're missing the point.;mɪs ðə pɔɪnt
+no strings attached;без обязательств;с обязательствами;с трудностями;with obligations;with issues;Это без обязательств.;It comes with no strings attached.;noʊ strɪŋz əˈtætʃt
+off the top of my head;на вскидку;точно;подробно;exactly;in detail;На вскидку, я не помню.;Off the top of my head, I don't remember.;ɒf ðə tɒp əv maɪ hɛd
+on cloud nine;на седьмом небе;в депрессии;в унынии;in depression;in sadness;Она на седьмом небе от счастья.;She is on cloud nine.;ɒn klaʊd naɪn
+on the ball;быстро реагирующий;медленный;ленивый;slow;lazy;Он быстро реагирует.;He is on the ball.;ɒn ðə bɔːl
+on thin ice;на грани;в безопасности;в выигрыше;safe;winning;Он на грани.;He is on thin ice.;ɒn θɪn aɪs
+put your foot down;поставить ультиматум;уступить;сдаться;give in;give up;Он поставил ультиматум.;He put his foot down.;pʊt jɔː fʊt daʊn
+rock the boat;раскачивать лодку;поддерживать;молчать;support;stay quiet;Не раскачивай лодку.;Don’t rock the boat.;rɒk ðə boʊt
+rub salt in the wound;сыпать соль на рану;лечить;помогать;heal;help;Не сыпь соль на рану.;Don’t rub salt in the wound.;rʌb sɔːlt ɪn ðə wuːnd
+see the big picture;видеть общую картину;видеть детали;игнорировать;focus on details;ignore;Попробуй увидеть общую картину.;Try to see the big picture.;siː ðə bɪg pɪkʧə
+shoot yourself in the foot;навредить себе;помочь себе;усилить;help yourself;strengthen;Ты навредил себе.;You shot yourself in the foot.;ʃuːt jɔːsɛlf ɪn ðə fʊt
+sit on the fence;выжидать;решать быстро;делать выбор;decide fast;choose quickly;Он выжидает.;He is sitting on the fence.;sɪt ɒn ðə fɛns
+sleep on it;переспать с мыслью;решить сразу;игнорировать;decide now;ignore;Переспи с этой мыслью.;Sleep on it.;sliːp ɒn ɪt
+speak your mind;выразить мнение;скрыть мнение;молчать;hide opinion;stay silent;Вырази своё мнение.;Speak your mind.;spiːk jɔː maɪnd
+stab someone in the back;ударить в спину;помочь;поддержать;help;support;Он ударил меня в спину.;He stabbed me in the back.;stæb sʌmwʌn ɪn ðə bæk
+the sky is the limit;нет предела;есть предел;мало возможностей;limited;few options;Нет предела мечтам.;The sky is the limit.;ðə skaɪ ɪz ðə lɪmɪt
+two birds with one stone;убить двух зайцев;упустить всё;сделать одно;miss all;do one;Он убил двух зайцев.;He killed two birds with one stone.;tuː bɜːdz wɪð wʌn stoʊn
+under your nose;прямо под носом;далеко;в стороне;far away;aside;Это было прямо под носом.;It was right under your nose.;ʌndə jɔː noʊz
+up in the air;в подвешенном состоянии;определено;ясно;certain;clear;Планы пока в подвешенном состоянии.;The plans are up in the air.;ʌp ɪn ði ɛː
+close;закрыть;открыть;ломать;open;break;Пожалуйста, закрой дверь.;Please close the door.;kloʊz
+close;близко, тесно;далеко;широко;far;wide;Они стоят очень близко друг к другу.;They stand very close to each other.;kloʊs
+close;ближний, тесный;широкий;дальний;wide;distant;Мы поддерживаем тесные отношения.;We maintain a close relationship.;kloʊs
+fever;жар;холод;страх;cold;fear;У него высокая температура.;He has a high fever.;fiːvər
+be quiet;замолчать;кричать;спорить;shout;argue;Пожалуйста, замолчите.;Please be quiet.;biː kwaɪət
+maybe;может быть;точно;никогда;exactly;never;Может быть, он придёт позже.;Maybe he will come later.;meɪbi
+digit;цифра;буква;символ;letter;symbol;Введите последнюю цифру.;Enter the last digit.;dɪdʒɪt
+flickering;мерцающий;яркий;твёрдый;bright;solid;Мерцающий свет раздражал.;The flickering light was annoying.;flɪkərɪŋ
+bring;приносить;бросать;прятать;throw;hide;Принеси мне воду.;Bring me some water.;brɪŋ
+condensation;конденсация;испарение;высыхание;evaporation;drying;Конденсация появилась на стекле.;Condensation appeared on the glass.;kɒndənˈseɪʃən
+deadlock;тупик;успех;луч;success;ray;Переговоры зашли в тупик.;The talks ended in a deadlock.;dɛdlɒk
+satellite;спутник;ракета;поезд;rocket;train;Спутник вышел на орбиту.;The satellite entered orbit.;sætəlaɪt
+crime;преступление;ошибка;просьба;mistake;request;Это серьёзное преступление.;It is a serious crime.;kraɪm
+forevermore;навеки;временно;иногда;temporarily;sometimes;Он ушёл навеки.;He left forevermore.;fɔːrɛvərmɔːr
+appreciate;ценить;забывать;ненавидеть;forget;hate;Я ценю твою помощь.;I appreciate your help.;əpriːʃieɪt
+power socket;розетка;лампа;печь;lamp;oven;Розетка не работает.;The power socket doesn't work.;paʊər sɒkɪt
+severe;суровый;лёгкий;мягкий;light;soft;Суровая погода ухудшилась.;The severe weather got worse.;sɪvɪər
+integrity;честность;ложь;лень;lie;laziness;Честность важна для лидера.;Integrity is important for a leader.;ɪntegrɪti
+cripple;калека;герой;враг;hero;enemy;Он стал калекой после аварии.;He became a cripple after the accident.;krɪpəl
+wide awake;полностью бодрствующий;сонный;ленивый;sleepy;lazy;Я полностью бодрствую.;I am wide awake.;waɪd əweɪk
+vicious;злобный;добрый;тихий;kind;quiet;Он злобный человек.;He is a vicious person.;vɪʃəs
+what the hell;что за чёрт;очень хорошо;молодец;very well;good job;Что за чёрт происходит?;What the hell is happening?;wɒt ðə hɛl
+similar to;похожий на;далёкий от;иной;far from;different;Он похож на своего отца.;He is similar to his father.;sɪmələr tuː
+retraction;отказ;победа;обещание;victory;promise;Они сделали официальное отозвание.;They issued an official retraction.;rɪtrækʃən
+nevermind;неважно;вперёд;согласен;go ahead;agree;Неважно, забудь.;Nevermind, forget it.;nɛvərmaɪnd
+refract;преломлять;ломать;рисовать;break;draw;Призма преломляет свет.;The prism refracts light.;rɪfrækt
+without a reason;без причины;специально;осознанно;on purpose;consciously;Он ушёл без причины.;He left without a reason.;wɪðaʊt ə riːzən
+carry over;переносить;забывать;уничтожать;forget;destroy;Мы перенесём задачу.;We will carry the task over.;kæri oʊvər
+take for;принимать за;оставлять;прятать;leave;hide;Он принял меня за друга.;He took me for a friend.;teɪk fɔːr
+rot;гнить;расти;светить;grow;shine;Дерево начало гнить.;The wood began to rot.;rɒt
+bastard;ублюдок;герой;друг;hero;friend;Он вёл себя как ублюдок.;He behaved like a bastard.;bæstərd
+wash;мыть;ломать;создавать;break;create;Помой руки.;Wash your hands.;wɒʃ
+cheap;дешёвый;дорогой;редкий;expensive;rare;Этот телефон дешёвый.;This phone is cheap.;tʃiːp
+sew;шить;ломать;рисовать;break;draw;Она сама сшила платье.;She sewed the dress herself.;soʊ
+drown;тонуть;лететь;скрываться;fly;hide;Он чуть не утонул.;He almost drowned.;draʊn
+offensive;оскорбительный;вежливый;милый;polite;nice;Это оскорбительные слова.;These words are offensive.;əfɛnsɪv
+mutual;взаимный;односторонний;враждебный;one-sided;hostile;Это взаимное уважение.;It is mutual respect.;mjuːtʃuəl
+fertilizer;удобрение;цемент;сахар;cement;sugar;Они добавили удобрение в почву.;They added fertilizer to the soil.;fɜːrtəlaɪzər
+preferable;предпочтительный;нежелательный;плохой;undesirable;bad;Этот вариант предпочтительнее.;This option is preferable.;prɛfrəbl
+cliques;группки;друзья;семьи;friends;families;В школе есть разные группки.;There are different cliques at school.;kliːks
+shoulders;плечи;ноги;пальцы;legs;fingers;У него широкие плечи.;He has broad shoulders.;ʃoʊldərz
+confused;запутанный;уверенный;радостный;confident;cheerful;Он выглядел запутанным после объяснения.;He looked confused after the explanation.;kənfjuːzd
+snap out of it;взять себя в руки;расстроиться;сдаваться;get upset;give up;Соберись и возьми себя в руки!;Come on, snap out of it!;snæp aʊt əv ɪt
+run;управлять;прыгать;бросать;jump;throw;Он управляет крупной компанией.;He runs a big company.;rʌn
+manage;управлять;кричать;мешать;shout;disturb;Он умеет управлять командой.;He can manage the team.;mænɪdʒ
+fall asleep;засыпать;просыпаться;вставать;wake up;get up;Он быстро заснул.;He quickly fell asleep.;fɔːl əˈsliːp
+choke;задыхаться;прыгать;шептать;jump;whisper;Он поперхнулся водой.;He choked on water.;tʃoʊk
+chain;цепь;верёвка;проволока;rope;wire;Она носила золотую цепь.;She wore a gold chain.;tʃeɪn
+loaf;буханка;кусочек;котлета;piece;cutlet;Я купил буханку хлеба.;I bought a loaf of bread.;loʊf
+leaf;лист;ветка;корень;branch;root;На землю упал жёлтый лист.;A yellow leaf fell to the ground.;liːf
+fetch;сходить и принести;отдать;приклеить;give;glue;Сходи и принеси воду, пожалуйста.;Go and fetch some water, please.;fetʃ
+suddenly;внезапно;медленно;плавно;slowly;smoothly;Он внезапно остановился.;He stopped suddenly.;sʌdənli
+last resort;крайнее средство;первый шаг;главное правило;first step;main rule;Это было их крайнее средство.;It was their last resort.;læst rɪzɔːrt
+last hope;последняя надежда;ошибка;сомнение;mistake;doubt;Он был их последней надеждой.;He was their last hope.;læst hoʊp
+knot;узел;дырка;палка;hole;stick;Он завязал крепкий узел.;He tied a strong knot.;nɒt
+node;узел;ветвь;корка;branch;crust;Каждый узел связан с другим.;Each node is connected to another.;noʊd
+barricade;баррикада;мост;забор;bridge;fence;Они построили баррикаду.;They built a barricade.;bærɪkeɪd
+ETA;расчётное время прибытия;время отбытия;задержка;departure time;delay;Каков расчётный ETA?;What's the ETA?;iːtiːeɪ
+Estimated time of arrival;расчётное время прибытия;уход;начало;leaving;start;Это указано как расчётное время прибытия.;This is marked as the estimated time of arrival.;estɪmeɪtɪd taɪm əv əraɪvəl
+arrival;прибытие;уход;прыжок;departure;jump;Прибытие задержали.;The arrival was delayed.;əraɪvəl
+underestimate;недооценивать;переоценивать;забывать;overestimate;forget;Не недооценивай его.;Don't underestimate him.;ʌndərestɪmeɪt
+just a second;секунду;никогда;позже;never;later;Секунду, я закончу.;Just a second, I'll finish.;dʒʌst ə sekənd
+to be to;быть суждено;быть забытым;быть потерянным;be forgotten;be lost;Ему было суждено победить.;He was to win.;tuː biː tuː
+destination;пункт назначения;коридор;забор;hall;fence;Мы почти достигли пункта назначения.;We almost reached the destination.;destɪneɪʃən
+jar;банка;тарелка;лоток;plate;tray;Она открыла банку варенья.;She opened a jar of jam.;dʒɑːr
+package;упаковка;кость;палка;bone;stick;Мне пришла посылка.;I received a package.;pækɪdʒ
+back;спина;нога;шея;leg;neck;У него болит спина.;His back hurts.;bæk
+blackmail;шантаж;подарок;похвала;gift;praise;Он стал жертвой шантажа.;He became a victim of blackmail.;blækmeɪl
+arson;поджог;кража;обман;theft;trick;Его арестовали за поджог.;He was arrested for arson.;ɑːrsən
+I'm getting used to;я привыкаю к;я покидаю;я сомневаюсь;I'm leaving;I'm doubting;Я привыкаю к новой работе.;I'm getting used to my new job.;aɪm ɡetɪŋ juːst tuː
+shy;застенчивый;грубый;веселый;rude;cheerful;Он очень застенчивый.;He is very shy.;ʃaɪ
+ask for time off;просить выходной;увольняться;забывать;quit;forget;Я хочу попросить выходной завтра.;I want to ask for time off tomorrow.;æsk fɔːr taɪm ɒf
+murder;убийство;кража;спасение;theft;rescue;Он был обвинён в убийстве.;He was accused of murder.;mɜːrdər
+whoever;кто бы ни;никто;каждый;nobody;everyone;Кто бы ни пришёл, добро пожаловать.;Whoever comes is welcome.;huːevər
+whit;ничтожество;богатство;радость;wealth;joy;Он не беспокоился ни на йоту.;He didn’t care a whit.;wɪt
+whip;кнут;лента;корзина;ribbon;basket;Он держал кнут в руках.;He held a whip in his hand.;wɪp
+cracking;потрескивающий;скользкий;густой;slippery;thick;Я слышал потрескивающий звук огня.;I heard the cracking sound of fire.;krækɪŋ
+step by step;шаг за шагом;разом;случайно;at once;accidentally;Мы учились шаг за шагом.;We learned step by step.;step baɪ step
+gossip;сплетни;награды;документы;awards;documents;Она любит обсуждать сплетни.;She likes talking about gossip.;gɒsɪp
+disrespect;неуважение;подарок;выбор;gift;choice;Неуважение недопустимо.;Disrespect is unacceptable.;dɪsrɪspekt
+rhyme;рифма;туча;камень;cloud;stone;Эти слова не имеют рифмы.;These words have no rhyme.;raɪm
+inhibit;сдерживать;ускорять;выбирать;accelerate;choose;Этот страх сдерживает его.;This fear inhibits him.;ɪnhɪbɪt
+turn out;оказываться;падать;выбирать;fall;pick;Это оказалось правдой.;It turned out to be true.;tɜːrn aʊt
+sacrifice;жертва;цена;выгода;price;benefit;Он сделал большую жертву.;He made a big sacrifice.;sækrɪfaɪs
+shake off;стряхнуть;оставить;заменить;leave;replace;Он попытался стряхнуть снег.;He tried to shake off the snow.;ʃeɪk ɒf
+correspond;соответствовать;обманывать;смешивать;cheat;mix;Эти данные соответствуют результатам.;These data correspond to the results.;kɒrɪspɒnd
+guilty;виновный;свободный;смелый;free;bold;Он признал себя виновным.;He pleaded guilty.;gɪlti
+on and on;без конца;редко;вовремя;rarely;on time;Он говорил без конца.;He talked on and on.;ɒn ænd ɒn
+perception;восприятие;надежда;форма;hope;shape;У каждого своё восприятие.;Everyone has their own perception.;pərsepʃən
+envy of;зависть к;доверие;память;trust;memory;Он был объектом зависти.;He was the envy of many.;envi ɒv
+extensive;обширный;узкий;медленный;narrow;slow;У него обширные знания.;He has extensive knowledge.;ɪkstensɪv
+retrieve;извлекать;прятать;вставлять;hide;insert;Он смог извлечь файл.;He managed to retrieve the file.;rɪtriːv
+spreadsheet;электронная таблица;статья;склад;article;warehouse;Я создал новую таблицу.;I created a new spreadsheet.;spredʃiːt
+
+reverting;возвращаясь;двигаясь;крича;moving;shouting;Возвращаясь к теме...;Reverting to the topic...;rɪvɜːrtɪŋ
+
+
+meaningful;значимый;пустой;редкий;empty;rare;Это был значимый разговор.;It was a meaningful conversation.;miːnɪŋfəl
+appointment;назначенная встреча;пропажа;ошибка;loss;error;У меня назначена встреча.;I have an appointment.;əpɔɪntmənt
+intention;намерение;запрет;побег;ban;escape;У него были честные намерения.;He had honest intentions.;ɪntenʃən
+plug in;подключать;ломать;растягивать;break;stretch;Не забудь подключить устройство.;Don't forget to plug in the device.;plʌɡ ɪn
+it’s clear to see;очевидно;возможно;сложно;possible;difficult;Очевидно, что он прав.;It's clear to see he's right.;ɪts klɪər tuː siː
+missing;пропавший;яркий;грустный;bright;sad;Ребёнок был объявлен пропавшим.;The child was reported missing.;mɪsɪŋ
+swore;клялся;молчал;бежал;silent;ran;Он клялся сказать правду.;He swore to tell the truth.;swɔːr
+wore;носил;плакал;ел;cried;ate;Он носил эту рубашку вчера.;He wore this shirt yesterday.;wɔːr
+dash;мчаться;ползти;чистить;crawl;clean;Он помчался домой.;He dashed home.;dæʃ
+attached;прикреплённый;оторванный;грязный;torn;dirty;Файл прикреплён к письму.;The file is attached to the email.;əˈtætʃt
+sunbathe;загорать;замерзать;нырять;freeze;dive;Мы загорали на пляже.;We sunbathed on the beach.;sʌnbeɪð
+bones;кости;перья;груши;feathers;pears;У него крепкие кости.;He has strong bones.;boʊnz
+illuminate;освещать;утончать;толкать;thin;push;Сцена была хорошо освещена.;The stage was well illuminated.;ɪluːmɪneɪt
+sacrifice;жертвовать;покупать;хранить;buy;store;Он пожертвовал своим временем.;He sacrificed his time.;sækrɪfaɪs
+straight;прямой;кривой;мягкий;curved;soft;Иди прямо.;Go straight.;streɪt
+appointment;назначение;подарок;вопрос;gift;question;У меня назначена встреча у врача.;I have a doctor's appointment.;əpɔɪntmənt
+quite;довольно;слишком;едва;too;barely;Это довольно интересно.;It's quite interesting.;kwaɪt
+chastity;целомудрие;лень;гордость;laziness;pride;Она дала обет целомудрия.;She took a vow of chastity.;tʃæstɪti
+starstruck;очарованный знаменитостью;испуганный;расстроенный;scared;upset;Он выглядел очарованным знаменитостью.;He looked starstruck.;stɑːrstrʌk
+hurry on;торопиться дальше;расслабляться;ждать;relax;wait;Мы не могли ждать и поторопились.;We couldn’t wait and hurried on.;hɜːri ɒn
+rude;грубый;вежливый;милый;polite;nice;Он был очень грубым.;He was very rude.;ruːd
+omen;предзнаменование;сомнение;шум;doubt;noise;Это было плохим предзнаменованием.;It was a bad omen.;oʊmən
+saviour;спаситель;враг;свидетель;enemy;witness;Он стал их спасителем.;He became their saviour.;seɪvjər
+mixed up;перепутанный;правильный;точный;correct;accurate;Все данные были перепутаны.;All the data was mixed up.;mɪkst ʌp
+boil;кипеть;охлаждать;резать;cool;cut;Вода начала кипеть.;The water started to boil.;bɔɪl
+boilermaker;котельщик;механик;водитель;mechanic;driver;Он работал котельщиком.;He worked as a boilermaker.;bɔɪlərmeɪkər
+behaviour;поведение;наказание;состояние;punishment;state;Его поведение было странным.;His behaviour was strange.;bɪheɪvjər
+bodega;продуктовый магазин;ресторан;больница;restaurant;hospital;Он зашёл в ближайшую бодегу.;He went into the nearest bodega.;boʊdeɪɡə
+twisted up;запутанный;ровный;занятый;straight;busy;Он был весь запутан и напряжён.;He was completely twisted up.;twɪstɪd ʌp
+swap;меняться;класть;падать;put;fall;Давай поменяемся задачами.;Let's swap tasks.;swɒp
+name;называть;прятать;терять;hide;lose;Назови хотя бы один пример.;Name at least one example.;neɪm
+wand;волшебная палочка;ручка;крюк;pen;hook;Он взмахнул волшебной палочкой.;He waved the wand.;wɒnd
+negotiation;переговоры;отмена;работа;cancellation;work;Переговоры длились три часа.;The negotiation lasted three hours.;nɪɡoʊʃiˈeɪʃən
+summit;вершина;равнина;поле;plain;field;Они достигли вершины.;They reached the summit.;sʌmɪt
+serve;служить;убегать;нырять;run away;dive;Он служил три года.;He served for three years.;sɜːrv
+bend

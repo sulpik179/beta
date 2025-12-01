@@ -63,10 +63,12 @@ class Database:
         self.conn.commit()
 
     def get_k(self, word_id):
-        return self.cursor.execute(
+        cursor = self.cursor.execute(
             'SELECT k FROM practice WHERE word_id = ?',
             (word_id,)
-        ).fetchone()[0]
+        )
+        row = cursor.fetchone()
+        return row[0] if row else 0
 
     def get_all_dict(self):
         return self.cursor.execute(
@@ -124,3 +126,10 @@ class Database:
 
     def get_all_dict_ids(self):
         return [row[0] for row in self.cursor.execute('SELECT word_id FROM dictionary').fetchall()]
+
+    def in_dict(self, word_id) -> bool:
+        cursor = self.cursor.execute(
+            'SELECT 1 FROM dictionary WHERE word_id = ?',
+            (word_id,)
+        )
+        return cursor.fetchone() is not None

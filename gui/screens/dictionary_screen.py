@@ -5,11 +5,31 @@ from kivy.uix.label import Label
 
 
 class DictionaryScreen(Screen):
+    def __init__(self, **kw):
+        super().__init__(**kw)
+        self.created_labels = []
+
     def on_enter(self):
+        self.apply_theme()
         self.load_dictionary()
+
+    def apply_theme(self):
+        app = App.get_running_app()
+        is_dark = app.is_dark_theme
+
+        dark_text = (0.90, 0.93, 0.96, 1)
+        light_text = (0.11, 0.14, 0.15, 1)
+        text_color = dark_text if is_dark else light_text
+
+        for label in self.created_labels:
+            label.color = text_color
 
     def load_dictionary(self):
         app = App.get_running_app()
+        is_dark = app.is_dark_theme
+        dark_text = (0.90, 0.93, 0.96, 1)
+        light_text = (0.11, 0.14, 0.15, 1)
+        text_color = dark_text if is_dark else light_text
 
         dict_ids = app.db.get_all_dict_ids()
         if not dict_ids:
@@ -17,12 +37,16 @@ class DictionaryScreen(Screen):
                 text='Словарь пуст.\nИзучайте слова в Learn и повторяйте их в Practice.',
                 font_size=18,
                 font_name='JetBrainsMono',
-                halign='center'
+                halign='center',
+                color=text_color
             )
+            self.created_labels = [label]  # <-- сохраняем Label
+            self.ids.dict_layout.clear_widgets()
             self.ids.dict_layout.add_widget(label)
             return
 
         self.ids.dict_layout.clear_widgets()
+        self.created_labels = []
 
         for word_id in dict_ids:
             word_row = app.db.get_word_by_id(word_id)
@@ -39,7 +63,8 @@ class DictionaryScreen(Screen):
                     height=30,
                     font_size=16,
                     font_name='JetBrainsMono',
-                    halign='left'
+                    halign='left',
+                    color=text_color
                 )
             word_box.add_widget(main_label)
             
@@ -49,22 +74,11 @@ class DictionaryScreen(Screen):
                     height=30,
                     font_size=14,
                     font_name='DejaVuSans',  
-                    halign='left'
+                    halign='left',
+                    color=text_color
                 )
             word_box.add_widget(transcr_label)
 
-            # sentence_en_label = Label(
-            #     text=f'"{sentence_en.strip()}"',
-            #     size_hint=(1, None),  
-            #     height=45,
-            #     font_size=12,
-            #     font_name='JetBrainsMono',
-            #     halign='left',
-            #     text_size=(word_box.width * 0.9, None)
-            # )
-            # sentence_en_label.bind(
-            #     texture_size=lambda instance, value: setattr(instance, 'height', value[1])
-            # )
-            # word_box.add_widget(sentence_en_label)
-
             self.ids.dict_layout.add_widget(word_box)
+            self.created_labels.append(main_label)
+            self.created_labels.append(transcr_label)
