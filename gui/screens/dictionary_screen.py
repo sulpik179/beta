@@ -2,7 +2,7 @@ from kivy.app import App
 from kivy.uix.screenmanager import Screen
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.label import Label
-
+from kivy.factory import Factory
 
 class DictionaryScreen(Screen):
     def __init__(self, **kw):
@@ -15,7 +15,7 @@ class DictionaryScreen(Screen):
 
     def apply_theme(self):
         app = App.get_running_app()
-        is_dark = app.is_dark_theme
+        is_dark = app.is_dark_theme if app else True
 
         dark_text = (0.90, 0.93, 0.96, 1)
         light_text = (0.11, 0.14, 0.15, 1)
@@ -26,21 +26,25 @@ class DictionaryScreen(Screen):
 
     def load_dictionary(self):
         app = App.get_running_app()
-        is_dark = app.is_dark_theme
+        is_dark = app.is_dark_theme if app else True
         dark_text = (0.90, 0.93, 0.96, 1)
         light_text = (0.11, 0.14, 0.15, 1)
         text_color = dark_text if is_dark else light_text
 
-        dict_ids = app.db.get_all_dict_ids()
+        dict_ids = []
+        try:
+            dict_ids = app.db.get_all_dict_ids()
+        except Exception:
+            dict_ids = []
+
         if not dict_ids:
             label = Label(
                 text='Словарь пуст.\nИзучайте слова в Learn и повторяйте их в Practice.',
                 font_size=18,
                 font_name='JetBrainsMono',
                 halign='center',
-                color=text_color
+                color=text_color,
             )
-            self.created_labels = [label]  # <-- сохраняем Label
             self.ids.dict_layout.clear_widgets()
             self.ids.dict_layout.add_widget(label)
             return
@@ -55,30 +59,16 @@ class DictionaryScreen(Screen):
 
             _, word_en, word_ru, _, _, _, _, sentence_ru, sentence_en, transcription = word_row
 
-            word_box = BoxLayout(orientation='vertical', size_hint_y=None, height=120)
+            # Создаем KV-компонент DictionaryItem
+            item = Factory.DictionaryItem()
 
-            main_label = Label(
-                    text=f'{word_en.strip()} — {word_ru.strip()}',
-                    size_hint_y=None,
-                    height=30,
-                    font_size=16,
-                    font_name='JetBrainsMono',
-                    halign='left',
-                    color=text_color
-                )
-            word_box.add_widget(main_label)
-            
-            transcr_label = Label(
-                    text=transcription.strip(),
-                    size_hint_y=None,
-                    height=30,
-                    font_size=14,
-                    font_name='DejaVuSans',  
-                    halign='left',
-                    color=text_color
-                )
-            word_box.add_widget(transcr_label)
+            # Заполняем текст
+            item.ids.main_label.text = f"{word_en.strip()} — {word_ru.strip()}"
+            item.ids.transcr_label.text = transcription.strip()
 
-            self.ids.dict_layout.add_widget(word_box)
-            self.created_labels.append(main_label)
-            self.created_labels.append(transcr_label)
+            # Добавляем в список
+            self.ids.dict_layout.add_widget(item)
+
+            # Чтобы apply_theme работал
+            self.created_labels.append(item.ids.main_label)
+            self.created_labels.append(item.ids.transcr_label)

@@ -1,16 +1,28 @@
 from kivy.uix.popup import Popup
+from kivy.app import App
+
 
 class LanguageSelectPopup(Popup):
     def __init__(self, callback, **kwargs):
-        kwargs.setdefault('title', '')
-        kwargs.setdefault('separator_height', 0)
-        kwargs.setdefault('size_hint', (0.5, 0.3))
-        kwargs.setdefault('background', '')
-        kwargs.setdefault('background_color', (0, 0, 0, 0))
-        
         super().__init__(**kwargs)
-        self.callback = callback
+        self._callback = callback
 
-    def set_language(self, lang_code):
-        self.callback(lang_code)
+    def apply_theme(self):
+        """Обновляет только фон main_box, если есть."""
+        app = App.get_running_app()
+
+        if "main_box" in self.ids:
+            box = self.ids["main_box"]
+            # canvas.before = [Color, Rectangle]
+            # Rectangle всегда по индексу 1
+            rect = box.canvas.before.children[0]
+            rect.rgba = (
+                app.color_dark if app.is_dark_theme else app.color_light
+            )
+
+    def _on_select(self, code):
+        try:
+            self._callback(code)
+        except Exception:
+            pass
         self.dismiss()

@@ -1,41 +1,43 @@
-import sqlite3 
+import sqlite3
 from pathlib import Path
 
 
-#DB_PATH = Path('data/o.db')
-DB_PATH = Path('words.db')
-SCHEMA_PATH = Path('data/schema.sql')
-
 class Database:
     def __init__(self, db_path=None):
+        # По умолчанию используем data/words.db
         if db_path is None:
             db_path = Path('data/words.db')
         else:
             db_path = Path(db_path)
-
         self.conn = sqlite3.connect(db_path)
         self.cursor = self.conn.cursor()
         self._apply_schema()
 
     def _apply_schema(self):
-        schema_path = Path('data/schema.sql')  
-        with open(schema_path, 'r', encoding='utf-8') as f:
-            sql = f.read()
-        self.cursor.executescript(sql)
-        self.conn.commit()
+        schema_path = Path('data/schema.sql')
+        if schema_path.exists():
+            with open(schema_path, 'r', encoding='utf-8') as f:
+                sql = f.read()
+            try:
+                self.cursor.executescript(sql)
+                self.conn.commit()
+            except Exception as e:
+                print('Ошибка при применении схемы:', e)
+        else:
+            print('schema.sql не найден по пути data/schema.sql')
 
     def get_word_for_learn(self):
         return self.cursor.execute(
-            'SELECT * FROM words WHERE id NOT IN (SELECT word_id FROM dictionary) AND ' \
-            'id NOT IN (SELECT word_id FROM practice) ORDER BY RANDOM() LIMIT 1'
+            'SELECT * FROM words WHERE id NOT IN (SELECT word_id FROM dictionary) '
+            'AND id NOT IN (SELECT word_id FROM practice) ORDER BY RANDOM() LIMIT 1'
         ).fetchone()
 
     def add_to_practice(self, word_id):
         self.cursor.execute(
             'INSERT OR IGNORE INTO practice(word_id, k) VALUES(?, 0)',
             (word_id,)
-        )   
-        self.conn.commit()  
+        )
+        self.conn.commit()
 
     def get_word_for_practice(self):
         return self.cursor.execute(
@@ -57,7 +59,7 @@ class Database:
 
     def add_to_dictionary(self, word_id):
         self.cursor.execute(
-            'INSERT OR IGNORE INTO dictionary VALUES(?)', 
+            'INSERT OR IGNORE INTO dictionary(word_id) VALUES(?)',
             (word_id,)
         )
         self.conn.commit()
@@ -70,60 +72,6 @@ class Database:
         row = cursor.fetchone()
         return row[0] if row else 0
 
-    def get_all_dict(self):
-        return self.cursor.execute(
-            'SELECT word_id FROM dictionary'
-        ).fetchall()
-
-    def get_all_learn(self):
-        return self.cursor.execute(
-            'SELECT * FROM words'
-        ).fetchall()
-
-    def close(self):
-        self.conn.close()
-
-    def add_words_from_csv(self, csv_path: str):
-        import csv
-        count = 0
-        with open(csv_path, 'r', encoding='utf-8') as f:
-            reader = csv.reader(f, delimiter=';')
-            for row_num, row in enumerate(reader, start=1):
-                if len(row) < 9:
-                    print(f'Пропущена строка {row_num} (недостаточно данных): {row}')
-                    count += 1
-                    continue
-
-                word_en, word_ru, distractor_ru1, distractor_ru2, distractor_en1, distractor_en2, sentence_ru, sentence_en, transcription = row
-
-                existing = self.cursor.execute(
-                    'SELECT 1 FROM words WHERE word_en = ? AND word_ru = ?',
-                    (word_en, word_ru)
-                ).fetchone()
-
-                if existing:
-                    print(f'Пропущена строка {row_num} (уже существует): {word_en} - {word_ru}')
-                    continue
-                try:
-                    self.cursor.execute('''
-                        INSERT INTO words (
-                            word_en, word_ru, distractor_ru1, distractor_ru2, distractor_en1,
-                            distractor_en2, sentence_ru, sentence_en, transcription) VALUES
-                            (?, ?, ?, ?, ?, ?, ?, ?, ?)''',
-                            (word_en, word_ru, distractor_ru1, distractor_ru2,
-                            distractor_en1, distractor_en2, sentence_ru, sentence_en, transcription)
-                            )
-                except Exception as e:
-                    print(f"Ошибка при вставке строки {row_num}: {e}")
-                    continue
-            print(f'Пропущено строк: {count}')
-
-        try:
-            self.conn.commit()
-            print("Транзакция зафиксирована.")
-        except Exception as e:
-            print(f"Ошибка при фиксации транзакции: {e}")
-
     def get_all_dict_ids(self):
         return [row[0] for row in self.cursor.execute('SELECT word_id FROM dictionary').fetchall()]
 
@@ -133,3 +81,58 @@ class Database:
             (word_id,)
         )
         return cursor.fetchone() is not None
+
+    def close(self):
+        try:
+            self.conn.commit()
+        except Exception:
+            pass
+        self.conn.close()
+
+    def add_words_from_csv(self, csv_path: str):
+        import csv
+        skipped_count = 0
+        inserted_count = 0
+        try:
+            with open(csv_path, 'r', encoding='utf-8') as f:
+                reader = csv.reader(f, delimiter=';')
+                for row_num, row in enumerate(reader, start=1):
+                    if len(row) < 9:
+                        print(f'Пропущена строка {row_num} (недостаточно данных): {row}')
+                        skipped_count += 1
+                        continue
+
+                    word_en, word_ru, distractor_ru1, distractor_ru2, distractor_en1, distractor_en2, sentence_ru, sentence_en, transcription = row
+
+                    existing = self.cursor.execute(
+                        'SELECT 1 FROM words WHERE word_en = ? AND word_ru = ?',
+                        (word_en, word_ru)
+                    ).fetchone()
+
+                    if existing:
+                        print(f'Пропущена строка {row_num} (уже существует): {word_en} - {word_ru}')
+                        skipped_count += 1
+                        continue
+                    try:
+                        self.cursor.execute('''
+                            INSERT INTO words (
+                                word_en, word_ru, distractor_ru1, distractor_ru2, distractor_en1,
+                                distractor_en2, sentence_ru, sentence_en, transcription) VALUES
+                                (?, ?, ?, ?, ?, ?, ?, ?, ?)''',
+                                            (word_en, word_ru, distractor_ru1, distractor_ru2,
+                                             distractor_en1, distractor_en2, sentence_ru, sentence_en, transcription)
+                                            )
+                        inserted_count += 1
+                    except Exception as e:
+                        print(f'Ошибка при вставке строки {row_num}: {e}')
+                        skipped_count += 1
+                        continue
+        except FileNotFoundError:
+            print('CSV файл не найден:', csv_path)
+            return
+
+        try:
+            self.conn.commit()
+            print(f'Вставлено: {inserted_count}, пропущено: {skipped_count}')
+        except Exception as e:
+            print('Ошибка при фиксации транзакции:', e)
